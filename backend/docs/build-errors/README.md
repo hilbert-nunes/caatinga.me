@@ -1,23 +1,29 @@
 # Build errors
 
 ## Maven
-- Error 
+- Erro 
 
   ``` bash
     Failed to execute goal org.apache.maven.plugins:maven-resources-plugin:3.2.0:resources (default-resources) on project sprinttool: Input length = 1 -> [Help 1]`
   ``` 
-- Solution
+- Solução
     - `mvn clean package -e -X`
-    - Do not use accentuation in application properties file 
+    - Não use caracteres UTF-8 no arquivo `application.properties`
 
+---------------------------------------------------------------------
 
 - Error
-  - Postgres Datasource not found 
+  ```bash
+  Postgres Datasource not found
+  ``` 
 
 - Solution
-  - Put profile `dev/test` manually in `application.properties` instead `<profiles>` in `pom.xml` 
+  - Coloque `dev/test` manualmente no `application.properties` e não em `<profiles>` no `pom.xml` 
+
+---------------------------------------------------------------------
+
 - [SHOULD](../../.resources/rfc2119.txt) see
-  - H2 console continues available on `dev` profile and oddly with postgres url 
+  - Mensagem que o H2 console continua disponível, mesmo com o perfil  `dev` ativado 
   ```bash 
   H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/postgres?user=postgres&password=123321' 
   ```

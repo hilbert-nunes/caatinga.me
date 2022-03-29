@@ -52,8 +52,10 @@ public class Tree {
     public Tree() {
     }
 
-    public Tree(String popularName, String botanicalName, String nameMeaning, String generalDescription, String specialDescription, String whereOccurs, String ecologicalInfo, String phenologicalInfo, String propagation, String managementGuide, String utilities, String culturalImportance) {
+    public Tree(String singleName, String popularName, String family, String botanicalName, String nameMeaning, String generalDescription, String specialDescription, String whereOccurs, String ecologicalInfo, String phenologicalInfo, String propagation, String managementGuide, String utilities, String culturalImportance) {
+        this.singleName = singleName;
         this.popularName = popularName;
+        this.family = family;
         this.botanicalName = botanicalName;
         this.nameMeaning = nameMeaning;
         this.generalDescription = generalDescription;

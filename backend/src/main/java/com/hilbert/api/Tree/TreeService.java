@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface TreeService {
     ResponseEntity<Response<List<TreeDTO>>> findAllTrees();
+
+    Tree saveTree(Tree tree);
 }

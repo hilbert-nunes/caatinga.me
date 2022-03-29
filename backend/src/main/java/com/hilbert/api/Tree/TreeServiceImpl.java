@@ -32,6 +32,11 @@ public class TreeServiceImpl implements TreeService{
         return ResponseEntity.ok().body(response);
     }
 
+    @Override
+    public Tree saveTree(Tree tree) {
+        return treeRepository.save(tree);
+    }
+
     private TreeDTO convertEntityToDto(Tree tree) {
         TreeDTO dto = new TreeDTO();
         dto.setSingleName(tree.getSingleName());

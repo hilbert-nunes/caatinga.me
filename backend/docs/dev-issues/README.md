@@ -1,4 +1,4 @@
 #Dev issues
 
-## JPA Buddy not working
-- Not solved
+## JPA Buddy não funcionando
+- Não resolvido
