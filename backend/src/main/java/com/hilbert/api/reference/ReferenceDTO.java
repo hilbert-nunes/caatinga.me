@@ -1,4 +1,4 @@
-package com.hilbert.api.Reference;
+package com.hilbert.api.reference;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;

@@ -1,6 +1,6 @@
-package com.hilbert.api.Tree;
+package com.hilbert.api.tree;
 
-import com.hilbert.api.Response.Response;
+import com.hilbert.api.response.Response;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;

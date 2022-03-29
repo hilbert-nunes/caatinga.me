@@ -1,4 +1,4 @@
-package com.hilbert.api.Tree;
+package com.hilbert.api.tree;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;

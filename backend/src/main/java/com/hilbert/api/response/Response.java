@@ -1,4 +1,4 @@
-package com.hilbert.api.Response;
+package com.hilbert.api.response;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -1,4 +1,4 @@
-package com.hilbert.api.Reference;
+package com.hilbert.api.reference;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

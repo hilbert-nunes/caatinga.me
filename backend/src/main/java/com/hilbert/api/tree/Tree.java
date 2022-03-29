@@ -1,4 +1,4 @@
-package com.hilbert.api.Tree;
+package com.hilbert.api.tree;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -17,7 +17,7 @@ public class Tree {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(unique = true, nullable = false)
     private String singleName;
 
     private String popularName;

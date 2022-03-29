@@ -1,6 +1,7 @@
-package com.hilbert.api.Tree;
+package com.hilbert.api.tree;
 
-import com.hilbert.api.Response.Response;
+import com.hilbert.api.exception.BadRequestException;
+import com.hilbert.api.response.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -34,6 +35,12 @@ public class TreeServiceImpl implements TreeService{
 
     @Override
     public Tree saveTree(Tree tree) {
+        Boolean existsSingleName = treeRepository.existsBySingleName(tree.getSingleName());
+        if (existsSingleName) {
+            throw new BadRequestException(
+                    "Árvore/arbusto " + tree.getSingleName() + " já existe");
+        }
+
         return treeRepository.save(tree);
     }
 

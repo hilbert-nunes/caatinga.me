@@ -1,4 +1,4 @@
-package com.hilbert.api.TreeReference;
+package com.hilbert.api.treeReference;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

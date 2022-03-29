@@ -1,4 +1,4 @@
-package com.hilbert.api.TreeReference;
+package com.hilbert.api.treeReference;
 
 import lombok.Data;
 

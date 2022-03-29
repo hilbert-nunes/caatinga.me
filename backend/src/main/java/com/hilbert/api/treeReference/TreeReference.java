@@ -1,7 +1,7 @@
-package com.hilbert.api.TreeReference;
+package com.hilbert.api.treeReference;
 
-import com.hilbert.api.Reference.Reference;
-import com.hilbert.api.Tree.Tree;
+import com.hilbert.api.reference.Reference;
+import com.hilbert.api.tree.Tree;
 import lombok.Getter;
 import lombok.Setter;
 
