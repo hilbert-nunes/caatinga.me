@@ -21,3 +21,4 @@
   ```bash 
   H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/postgres?user=postgres&password=123321' 
   ```
+  
