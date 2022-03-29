@@ -1,15 +1,16 @@
 package com.hilbert.api.tree;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
+import org.hibernate.Hibernate;
 
 import javax.persistence.*;
+import java.util.Objects;
 
-@Entity
+@ToString
 @Getter
 @Setter
-@ToString
+@NoArgsConstructor
+@Entity
 @Table(name = "tb_tree")
 public class Tree {
     @Id
@@ -49,7 +50,22 @@ public class Tree {
 
     private String culturalImportance;
 
-    public Tree() {
+    public Tree(Long id, String singleName, String popularName, String family, String botanicalName, String nameMeaning, String generalDescription, String specialDescription, String whereOccurs, String ecologicalInfo, String phenologicalInfo, String propagation, String managementGuide, String utilities, String culturalImportance) {
+        this.id = id;
+        this.singleName = singleName;
+        this.popularName = popularName;
+        this.family = family;
+        this.botanicalName = botanicalName;
+        this.nameMeaning = nameMeaning;
+        this.generalDescription = generalDescription;
+        this.specialDescription = specialDescription;
+        this.whereOccurs = whereOccurs;
+        this.ecologicalInfo = ecologicalInfo;
+        this.phenologicalInfo = phenologicalInfo;
+        this.propagation = propagation;
+        this.managementGuide = managementGuide;
+        this.utilities = utilities;
+        this.culturalImportance = culturalImportance;
     }
 
     public Tree(String singleName, String popularName, String family, String botanicalName, String nameMeaning, String generalDescription, String specialDescription, String whereOccurs, String ecologicalInfo, String phenologicalInfo, String propagation, String managementGuide, String utilities, String culturalImportance) {
@@ -67,5 +83,18 @@ public class Tree {
         this.managementGuide = managementGuide;
         this.utilities = utilities;
         this.culturalImportance = culturalImportance;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        Tree tree = (Tree) o;
+        return id != null && Objects.equals(id, tree.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
     }
 }

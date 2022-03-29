@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TreeServiceImpl implements TreeService{
@@ -34,6 +35,18 @@ public class TreeServiceImpl implements TreeService{
     }
 
     @Override
+    public Tree getOneTree(Long treeId) {
+        Optional<Tree> optionalTree = treeRepository.findById(treeId);
+
+        if (!optionalTree.isPresent()) {
+            throw new BadRequestException(
+                    "Árvore/arbusto com id " + treeId + " não encontrado");
+        }
+
+        return null;
+    }
+
+    @Override
     public Tree saveTree(Tree tree) {
         Boolean existsSingleName = treeRepository.existsBySingleName(tree.getSingleName());
         if (existsSingleName) {
@@ -42,6 +55,32 @@ public class TreeServiceImpl implements TreeService{
         }
 
         return treeRepository.save(tree);
+    }
+
+    @Override
+    public Tree updateTree(Tree tree) {
+        Optional<Tree> optionalTree = treeRepository.findById(tree.getId());
+
+        if (!optionalTree.isPresent()) {
+            throw new BadRequestException(
+                    "Árvore/arbusto " + tree.getSingleName() + " com id " + tree.getId() + " não encontrado");
+        }
+
+        return treeRepository.save(tree);
+    }
+
+    @Override
+    public ResponseEntity deleteTree(Tree tree) {
+        Optional<Tree> optionalTree = treeRepository.findById(tree.getId());
+
+        if (!optionalTree.isPresent()){
+            throw new BadRequestException(
+                    "Árvore/arbusto " + tree.getSingleName() + " com id " + tree.getId() + " não encontrado");
+        }
+
+        treeRepository.delete(tree);
+
+        return ResponseEntity.ok().build();
     }
 
     private TreeDTO convertEntityToDto(Tree tree) {
