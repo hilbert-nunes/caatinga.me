@@ -6,7 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Getter
 @Setter
@@ -15,6 +16,7 @@ import javax.validation.constraints.NotNull;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ReferenceDTO {
     private Long id;
-    @NotNull(message = "O nome não pode ser nulo")
+    @NotBlank(message = "O nome não pode ser nulo")
+    @Size(min = 10, message = "Nome deve conter no mínimo 2 caracteres")
     private String name;
 }

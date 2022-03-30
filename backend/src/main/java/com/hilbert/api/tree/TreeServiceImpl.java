@@ -25,7 +25,7 @@ public class TreeServiceImpl implements TreeService{
     @Override
     public ResponseEntity<Response<List<TreeDTO>>> findAllTrees() {
 
-        Response<List<TreeDTO>> response = new Response<List<TreeDTO>>();
+        Response<List<TreeDTO>> response = new Response<>();
 
         List<Tree> trees = treeRepository.findAll();
 
@@ -126,7 +126,7 @@ public class TreeServiceImpl implements TreeService{
 
         response.setData("Árvore/arbusto de id " + treeId + " apagada com sucesso");
 
-        return ResponseEntity.ok().body(response);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).body(response);
     }
 
     @Override

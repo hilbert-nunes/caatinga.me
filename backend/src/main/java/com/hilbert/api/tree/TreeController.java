@@ -19,7 +19,7 @@ public class TreeController {
     }
 
     @GetMapping(value = "/trees")
-    public ResponseEntity<Response<List<TreeDTO>>> findAll(){
+    public ResponseEntity<Response<List<TreeDTO>>> findAllTrees(){
         return treeService.findAllTrees();
     }
 
