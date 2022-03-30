@@ -2,6 +2,7 @@ package com.hilbert.api.tree;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.BDDMockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -24,12 +25,11 @@ class TreeControllerTest {
     @Autowired
     MockMvc mockMvc;
 
-
-    private static final String URL = "/api/v1/caatinga-trees";
+    private static final String URL1 = "/api/v1/caatinga/trees";
 
     @Test
     void is200findAllTrees() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get(URL)
+        mockMvc.perform(MockMvcRequestBuilders.get(URL1)
                         .accept(MediaType.APPLICATION_JSON))
                         .andExpect(status().isOk());
     }

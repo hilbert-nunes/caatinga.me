@@ -6,7 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Getter
 @Setter
@@ -15,14 +16,19 @@ import javax.validation.constraints.NotNull;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class TreeDTO {
     private Long id;
-    @NotNull(message = "A árvore/arbusto deve pelo menos um nome")
+    @NotBlank(message = "A árvore/arbusto não pode ser nula/vazia")
+    @Size(min = 2, max = 32, message = "Nome deve conter entre 2 and 32 caracteres")
     private String singleName;
     private String popularName;
-    @NotNull(message = "A família da árvore/arbusto não pode ser nula")
+    @Size(min = 2, max = 32, message = "Nome deve conter entre 2 and 32 caracteres")
+    @NotBlank(message = "A família da árvore/arbusto não pode ser nula/vazia")
     private String family;
-    @NotNull(message = "Taxonomia da árvore/arbusto não pode ser nula")
+    @Size(min = 2, max = 32, message = "Nome deve conter entre 2 and 32 caracteres")
+    @NotBlank(message = "Taxonomia da árvore/arbusto não pode ser nula/vazia")
     private String botanicalName;
     private String nameMeaning;
+    @Size(min = 100, message = "Descrição geral deve conter no mínimo 100")
+    @NotBlank(message = "A descrição geral da árvore/arbusto não pode ser nula/vazia")
     private String generalDescription;
     private String specialDescription;
     private String whereOccurs;

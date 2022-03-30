@@ -4,6 +4,7 @@ import com.hilbert.api.exception.BadRequestException;
 import com.hilbert.api.response.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.ObjectError;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,15 +36,21 @@ public class TreeServiceImpl implements TreeService{
     }
 
     @Override
-    public Tree getOneTree(Long treeId) {
+    public ResponseEntity<Response<TreeDTO>> getOneTreeById(Long treeId) {
+        Response<TreeDTO> response = new Response<>();
+
         Optional<Tree> optionalTree = treeRepository.findById(treeId);
 
         if (!optionalTree.isPresent()) {
-            throw new BadRequestException(
+            ObjectError objectError = new ObjectError("Tree",
                     "Árvore/arbusto com id " + treeId + " não encontrado");
+            response.getErrors().add(objectError.getDefaultMessage());
+            return ResponseEntity.ok().body(response);
         }
 
-        return null;
+        TreeDTO treeDTO = convertEntityToDto(optionalTree.get());
+        response.setData(treeDTO);
+        return ResponseEntity.ok().body(response);
     }
 
     @Override
@@ -81,6 +88,24 @@ public class TreeServiceImpl implements TreeService{
         treeRepository.delete(tree);
 
         return ResponseEntity.ok().build();
+    }
+
+    @Override
+    public ResponseEntity<Response<TreeDTO>> getOneTreeByName(String singleName) {
+        Response<TreeDTO> response = new Response<>();
+
+        Optional<Tree> optionalTree = treeRepository.findBySingleName(singleName);
+
+        if (!optionalTree.isPresent()) {
+            ObjectError objectError = new ObjectError("Tree",
+                    "Árvore/arbusto com nome " + singleName + " não encontrado");
+            response.getErrors().add(objectError.getDefaultMessage());
+            return ResponseEntity.ok().body(response);
+        }
+
+        TreeDTO treeDTO = convertEntityToDto(optionalTree.get());
+        response.setData(treeDTO);
+        return ResponseEntity.ok().body(response);
     }
 
     private TreeDTO convertEntityToDto(Tree tree) {
