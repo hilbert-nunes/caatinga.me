@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-@Table(name = "tb_users_wallet")
+@Table(name = "tb_tree_reference")
 public class TreeReference {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

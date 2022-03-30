@@ -27,10 +27,10 @@ class TreeControllerTest {
 
     private static final String URL1 = "/api/v1/caatinga/trees";
 
-    @Test
-    void is200findAllTrees() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get(URL1)
-                        .accept(MediaType.APPLICATION_JSON))
-                        .andExpect(status().isOk());
-    }
+//    @Test
+//    void is200findAllTrees() throws Exception {
+//        mockMvc.perform(MockMvcRequestBuilders.get(URL1)
+//                        .accept(MediaType.APPLICATION_JSON))
+//                        .andExpect(status().isOk());
+//    }
 }

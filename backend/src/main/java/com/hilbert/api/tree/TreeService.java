@@ -2,6 +2,7 @@ package com.hilbert.api.tree;
 
 import com.hilbert.api.response.Response;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 
 import java.util.List;
 
@@ -10,7 +11,7 @@ public interface TreeService {
 
     ResponseEntity<Response<TreeDTO>> getOneTreeById(Long treeId);
 
-    Tree saveTree(Tree tree);
+    ResponseEntity<Response<TreeDTO>> saveTree(TreeDTO treeDTO, BindingResult bindingResult);
 
     Tree updateTree(Tree tree);
 

@@ -2,8 +2,10 @@ package com.hilbert.api.tree;
 
 import com.hilbert.api.exception.BadRequestException;
 import com.hilbert.api.response.Response;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 
 import java.util.ArrayList;
@@ -54,14 +56,30 @@ public class TreeServiceImpl implements TreeService{
     }
 
     @Override
-    public Tree saveTree(Tree tree) {
-        Boolean existsSingleName = treeRepository.existsBySingleName(tree.getSingleName());
-        if (existsSingleName) {
-            throw new BadRequestException(
-                    "Árvore/arbusto " + tree.getSingleName() + " já existe");
+    public ResponseEntity<Response<TreeDTO>> saveTree(TreeDTO treeDTO, BindingResult bindingResult) {
+        Response<TreeDTO> response = new Response<>();
+
+        if (bindingResult.hasErrors()){
+            bindingResult.getAllErrors().forEach(r -> response.getErrors().add(r.getDefaultMessage()));
+
+            return ResponseEntity.badRequest().body(response);
         }
 
-        return treeRepository.save(tree);
+
+        Boolean existsSingleName = treeRepository.existsBySingleName(treeDTO.getSingleName());
+
+        if (existsSingleName){
+            ObjectError objectError = new ObjectError("Tree",
+                    "Árvore/arbusto com nome " + treeDTO.getSingleName() + " já existe na base de dados");
+            response.getErrors().add(objectError.getDefaultMessage());
+            return ResponseEntity.ok().body(response);
+        }
+
+        Tree tree = treeRepository.save(convertDtoToEntity(treeDTO));
+
+        response.setData(convertEntityToDto(tree));
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
     @Override
@@ -126,5 +144,25 @@ public class TreeServiceImpl implements TreeService{
         dto.setCulturalImportance(tree.getCulturalImportance());
 
         return dto;
+    }
+
+    private Tree convertDtoToEntity(TreeDTO treeDTO){
+        Tree tree = new Tree();
+        tree.setSingleName(treeDTO.getSingleName());
+        tree.setPopularName(treeDTO.getPopularName());
+        tree.setFamily(treeDTO.getFamily());
+        tree.setBotanicalName(treeDTO.getBotanicalName());
+        tree.setNameMeaning(treeDTO.getNameMeaning());
+        tree.setGeneralDescription(treeDTO.getGeneralDescription());
+        tree.setSpecialDescription(treeDTO.getSpecialDescription());
+        tree.setWhereOccurs(treeDTO.getWhereOccurs());
+        tree.setEcologicalInfo(treeDTO.getEcologicalInfo());
+        tree.setPhenologicalInfo(treeDTO.getPhenologicalInfo());
+        tree.setPropagation(treeDTO.getPropagation());
+        tree.setManagementGuide(treeDTO.getManagementGuide());
+        tree.setUtilities(treeDTO.getUtilities());
+        tree.setCulturalImportance(treeDTO.getCulturalImportance());
+
+        return tree;
     }
 }

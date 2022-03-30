@@ -2,11 +2,10 @@ package com.hilbert.api.tree;
 
 import com.hilbert.api.response.Response;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -32,5 +31,10 @@ public class TreeController {
     @GetMapping("/tree/name/{singleName}")
     public ResponseEntity<Response<TreeDTO>> getOneTreeByName(@PathVariable("singleName") String singleName){
         return treeService.getOneTreeByName(singleName);
+    }
+
+    @PostMapping("/tree")
+    public ResponseEntity<Response<TreeDTO>> saveTree(@Valid @RequestBody TreeDTO treeDTO, BindingResult bindingResult){
+        return treeService.saveTree(treeDTO, bindingResult);
     }
 }
