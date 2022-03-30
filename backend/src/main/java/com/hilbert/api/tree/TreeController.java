@@ -37,4 +37,12 @@ public class TreeController {
     public ResponseEntity<Response<TreeDTO>> saveTree(@Valid @RequestBody TreeDTO treeDTO, BindingResult bindingResult){
         return treeService.saveTree(treeDTO, bindingResult);
     }
+
+    @PutMapping("/tree/{treeId}")
+    public ResponseEntity<Response<TreeDTO>> updateTree(
+            @PathVariable("treeId") Long treeId,
+            @Valid @RequestBody TreeDTO treeDto,
+            BindingResult bindingResult){
+        return treeService.updateTree(treeId, treeDto, bindingResult);
+    }
 }

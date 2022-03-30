@@ -16,14 +16,14 @@ import javax.validation.constraints.Size;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class TreeDTO {
     private Long id;
-    @NotBlank(message = "A árvore/arbusto não pode ser nula/vazia")
+    @NotBlank(message = "O nome da árvore/arbusto não pode ser nula/vazia")
     @Size(min = 2, max = 32, message = "Nome deve conter entre 2 and 32 caracteres")
     private String singleName;
     private String popularName;
-    @Size(min = 2, max = 32, message = "Nome deve conter entre 2 and 32 caracteres")
+    @Size(min = 2, max = 32, message = "Família deve conter entre 2 and 32 caracteres")
     @NotBlank(message = "A família da árvore/arbusto não pode ser nula/vazia")
     private String family;
-    @Size(min = 2, max = 32, message = "Nome deve conter entre 2 and 32 caracteres")
+    @Size(min = 2, max = 32, message = "Taxonomia deve conter entre 2 and 32 caracteres")
     @NotBlank(message = "Taxonomia da árvore/arbusto não pode ser nula/vazia")
     private String botanicalName;
     private String nameMeaning;

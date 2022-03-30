@@ -50,24 +50,6 @@ public class Tree {
 
     private String culturalImportance;
 
-    public Tree(Long id, String singleName, String popularName, String family, String botanicalName, String nameMeaning, String generalDescription, String specialDescription, String whereOccurs, String ecologicalInfo, String phenologicalInfo, String propagation, String managementGuide, String utilities, String culturalImportance) {
-        this.id = id;
-        this.singleName = singleName;
-        this.popularName = popularName;
-        this.family = family;
-        this.botanicalName = botanicalName;
-        this.nameMeaning = nameMeaning;
-        this.generalDescription = generalDescription;
-        this.specialDescription = specialDescription;
-        this.whereOccurs = whereOccurs;
-        this.ecologicalInfo = ecologicalInfo;
-        this.phenologicalInfo = phenologicalInfo;
-        this.propagation = propagation;
-        this.managementGuide = managementGuide;
-        this.utilities = utilities;
-        this.culturalImportance = culturalImportance;
-    }
-
     public Tree(String singleName, String popularName, String family, String botanicalName, String nameMeaning, String generalDescription, String specialDescription, String whereOccurs, String ecologicalInfo, String phenologicalInfo, String propagation, String managementGuide, String utilities, String culturalImportance) {
         this.singleName = singleName;
         this.popularName = popularName;

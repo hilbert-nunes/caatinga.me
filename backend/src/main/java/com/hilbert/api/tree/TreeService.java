@@ -13,7 +13,7 @@ public interface TreeService {
 
     ResponseEntity<Response<TreeDTO>> saveTree(TreeDTO treeDTO, BindingResult bindingResult);
 
-    Tree updateTree(Tree tree);
+    ResponseEntity<Response<TreeDTO>> updateTree(Long treeId, TreeDTO treeDTO, BindingResult bindingResult);
 
     ResponseEntity deleteTree(Tree tree);
 
