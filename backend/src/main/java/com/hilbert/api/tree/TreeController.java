@@ -28,4 +28,9 @@ public class TreeController {
     public ResponseEntity<Response<TreeDTO>> getOneTreeById(@PathVariable("treeId") Long treeId){
         return treeService.getOneTreeById(treeId);
     }
+
+    @GetMapping("/tree/name/{singleName}")
+    public ResponseEntity<Response<TreeDTO>> getOneTreeByName(@PathVariable("singleName") String singleName){
+        return treeService.getOneTreeByName(singleName);
+    }
 }
