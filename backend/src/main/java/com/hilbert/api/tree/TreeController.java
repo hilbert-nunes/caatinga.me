@@ -45,4 +45,10 @@ public class TreeController {
             BindingResult bindingResult){
         return treeService.updateTree(treeId, treeDto, bindingResult);
     }
+
+    @DeleteMapping("/tree/{treeId}")
+    public ResponseEntity<Response<String>> deleteTree(
+            @PathVariable("treeId") Long treeId){
+        return treeService.deleteTree(treeId);
+    }
 }

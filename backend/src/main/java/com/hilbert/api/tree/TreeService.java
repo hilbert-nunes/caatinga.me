@@ -15,7 +15,7 @@ public interface TreeService {
 
     ResponseEntity<Response<TreeDTO>> updateTree(Long treeId, TreeDTO treeDTO, BindingResult bindingResult);
 
-    ResponseEntity deleteTree(Tree tree);
+    ResponseEntity<Response<String>> deleteTree(Long treeId);
 
     ResponseEntity<Response<TreeDTO>> getOneTreeByName(String singleName);
 }

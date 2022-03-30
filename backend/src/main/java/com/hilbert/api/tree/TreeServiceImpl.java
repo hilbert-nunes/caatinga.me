@@ -48,7 +48,7 @@ public class TreeServiceImpl implements TreeService{
             ObjectError objectError = new ObjectError("Tree",
                     "Árvore/arbusto com id " + treeId + " não encontrado");
             response.getErrors().add(objectError.getDefaultMessage());
-            return ResponseEntity.ok().body(response);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
 
         TreeDTO treeDTO = convertEntityToDto(optionalTree.get());
@@ -73,7 +73,7 @@ public class TreeServiceImpl implements TreeService{
             ObjectError objectError = new ObjectError("Tree",
                     "Árvore/arbusto com nome " + treeDTO.getSingleName() + " já existe na base de dados");
             response.getErrors().add(objectError.getDefaultMessage());
-            return ResponseEntity.ok().body(response);
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
         }
 
         Tree tree = treeRepository.save(convertDtoToEntity(treeDTO));
@@ -98,7 +98,7 @@ public class TreeServiceImpl implements TreeService{
             ObjectError objectError = new ObjectError("Tree",
                     "Árvore/arbusto com id " + id + " não encontrado ou tentando modificar o nome");
             response.getErrors().add(objectError.getDefaultMessage());
-            return ResponseEntity.ok().body(response);
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
         }
 
         updateTreeRecord(existsTree.get(), treeDTO, id);
@@ -112,17 +112,21 @@ public class TreeServiceImpl implements TreeService{
 
 
     @Override
-    public ResponseEntity deleteTree(Tree tree) {
-        Optional<Tree> optionalTree = treeRepository.findById(tree.getId());
+    public ResponseEntity<Response<String>> deleteTree(Long treeId) {
+        Response<String> response = new Response<String>();
 
-        if (!optionalTree.isPresent()){
-            throw new BadRequestException(
-                    "Árvore/arbusto " + tree.getSingleName() + " com id " + tree.getId() + " não encontrado");
+        boolean existsTree = treeRepository.existsById(treeId);
+
+        if (!existsTree){
+            response.getErrors().add("Árvore/arbusto de id " + treeId + " não encontrada");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
 
-        treeRepository.delete(tree);
+        treeRepository.delete(treeRepository.findById(treeId).get());
 
-        return ResponseEntity.ok().build();
+        response.setData("Árvore/arbusto de id " + treeId + " apagada com sucesso");
+
+        return ResponseEntity.ok().body(response);
     }
 
     @Override
@@ -135,7 +139,7 @@ public class TreeServiceImpl implements TreeService{
             ObjectError objectError = new ObjectError("Tree",
                     "Árvore/arbusto com nome " + singleName + " não encontrado");
             response.getErrors().add(objectError.getDefaultMessage());
-            return ResponseEntity.ok().body(response);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
 
         TreeDTO treeDTO = convertEntityToDto(optionalTree.get());
