@@ -1,12 +1,16 @@
 package com.hilbert.api.tree;
 
-import lombok.*;
+import com.hilbert.api.reference.Reference;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
-@ToString
 @Getter
 @Setter
 @NoArgsConstructor
@@ -50,7 +54,27 @@ public class Tree {
 
     private String culturalImportance;
 
-    public Tree(String singleName, String popularName, String family, String botanicalName, String nameMeaning, String generalDescription, String specialDescription, String whereOccurs, String ecologicalInfo, String phenologicalInfo, String propagation, String managementGuide, String utilities, String culturalImportance) {
+
+    @ManyToMany(cascade = {
+            CascadeType.MERGE
+    })
+    @JoinTable(name = "tree_reference",
+            joinColumns = @JoinColumn(name = "treeId"),
+            inverseJoinColumns = @JoinColumn(name = "referenceId")
+    )
+    private Set<Reference> references = new HashSet<>();
+
+    public void addReference(Reference reference){
+        references.add(reference);
+        reference.getTrees().add(this);
+    }
+
+    public void removeReference(Reference reference){
+        references.remove(reference);
+        reference.getTrees().remove(this);
+    }
+
+    public Tree(String singleName, String popularName, String family, String botanicalName, String nameMeaning, String generalDescription, String specialDescription, String whereOccurs, String ecologicalInfo, String phenologicalInfo, String propagation, String managementGuide, String utilities, String culturalImportance, Set<Reference> references) {
         this.singleName = singleName;
         this.popularName = popularName;
         this.family = family;
@@ -65,6 +89,7 @@ public class Tree {
         this.managementGuide = managementGuide;
         this.utilities = utilities;
         this.culturalImportance = culturalImportance;
+        this.references = references;
     }
 
     @Override

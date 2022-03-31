@@ -1,6 +1,7 @@
 package com.hilbert.api.tree;
 
-import com.hilbert.api.exception.BadRequestException;
+import com.hilbert.api.reference.Reference;
+import com.hilbert.api.reference.ReferenceRepository;
 import com.hilbert.api.response.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,10 +17,12 @@ import java.util.Optional;
 @Service
 public class TreeServiceImpl implements TreeService{
 
-    TreeRepository treeRepository;
+    private final TreeRepository treeRepository;
+    private final ReferenceRepository referenceRepository;
 
-    public TreeServiceImpl(TreeRepository treeRepository) {
+    public TreeServiceImpl(TreeRepository treeRepository, ReferenceRepository referenceRepository) {
         this.treeRepository = treeRepository;
+        this.referenceRepository = referenceRepository;
     }
 
     @Override
@@ -66,7 +69,6 @@ public class TreeServiceImpl implements TreeService{
             return ResponseEntity.badRequest().body(response);
         }
 
-
         Boolean existsSingleName = treeRepository.existsBySingleName(treeDTO.getSingleName());
 
         if (existsSingleName){
@@ -74,6 +76,13 @@ public class TreeServiceImpl implements TreeService{
                     "Árvore/arbusto com nome " + treeDTO.getSingleName() + " já existe na base de dados");
             response.getErrors().add(objectError.getDefaultMessage());
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+        }
+
+        for ( Reference r : treeDTO.getReferences() ){
+            if (r.getId() == null ){
+                Reference reference = referenceRepository.save(r);
+                r.setId(reference.getId());
+            }
         }
 
         Tree tree = treeRepository.save(convertDtoToEntity(treeDTO));
@@ -110,7 +119,6 @@ public class TreeServiceImpl implements TreeService{
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
-
     @Override
     public ResponseEntity<Response<String>> deleteTree(Long treeId) {
         Response<String> response = new Response<String>();
@@ -126,7 +134,7 @@ public class TreeServiceImpl implements TreeService{
 
         response.setData("Árvore/arbusto de id " + treeId + " apagada com sucesso");
 
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).body(response);
+        return ResponseEntity.ok().body(response);
     }
 
     @Override
@@ -164,6 +172,7 @@ public class TreeServiceImpl implements TreeService{
         dto.setManagementGuide(tree.getManagementGuide());
         dto.setUtilities(tree.getUtilities());
         dto.setCulturalImportance(tree.getCulturalImportance());
+        dto.setReferences(tree.getReferences());
 
         return dto;
     }
@@ -185,12 +194,12 @@ public class TreeServiceImpl implements TreeService{
         tree.setManagementGuide(treeDTO.getManagementGuide());
         tree.setUtilities(treeDTO.getUtilities());
         tree.setCulturalImportance(treeDTO.getCulturalImportance());
+        tree.setReferences(treeDTO.getReferences());
 
         return tree;
     }
 
     private void updateTreeRecord(Tree originalTreeToBeUpdated, TreeDTO treeDTOUpdated, Long id) {
-
         originalTreeToBeUpdated.setId(id);
         originalTreeToBeUpdated.setSingleName(treeDTOUpdated.getSingleName());
         originalTreeToBeUpdated.setFamily(treeDTOUpdated.getFamily());
@@ -206,5 +215,6 @@ public class TreeServiceImpl implements TreeService{
         originalTreeToBeUpdated.setManagementGuide(treeDTOUpdated.getManagementGuide());
         originalTreeToBeUpdated.setUtilities(treeDTOUpdated.getUtilities());
         originalTreeToBeUpdated.setCulturalImportance(treeDTOUpdated.getCulturalImportance());
+        originalTreeToBeUpdated.setReferences(treeDTOUpdated.getReferences());
     }
 }

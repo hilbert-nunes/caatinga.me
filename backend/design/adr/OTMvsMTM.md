@@ -2,7 +2,7 @@
 
 ## Status
 
-Testando
+Testado
 
 ## Contexto
 
@@ -10,8 +10,8 @@ Uma árvore/arbusto tem várias referências e uma referência tem mais de uma �
 
 ## Decisão
 
-Decidi usar relação One to Many (relação forte) por motivos de facilitação inicial, e colocar o `Setter` da entidade `Reference`, mesmo não fazendo muito sentido. 
+Decidi usar relação One to Many por motivos de facilitação inicial, colocar o `Setter` na entidade `Reference`, mesmo não fazendo muito sentido, e usar uma tabela que guarda a relação entre Árvore e Referência.
 
 ## Consequências
 
-Pode-se tornar difícil o mapeamento das árvores/arbustos via referências
+Se tornou muito difícil o mapeamento das árvores/arbustos via referências.

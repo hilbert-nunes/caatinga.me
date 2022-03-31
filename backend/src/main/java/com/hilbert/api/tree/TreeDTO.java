@@ -1,6 +1,6 @@
 package com.hilbert.api.tree;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
+import com.hilbert.api.reference.Reference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,12 +8,13 @@ import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class TreeDTO {
     private Long id;
     @NotBlank(message = "O nome da árvore/arbusto não pode ser nula/vazia")
@@ -38,4 +39,5 @@ public class TreeDTO {
     private String managementGuide;
     private String utilities;
     private String culturalImportance;
+    private Set<Reference> references = new HashSet<>();
 }

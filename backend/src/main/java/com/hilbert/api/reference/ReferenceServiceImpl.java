@@ -14,7 +14,7 @@ import java.util.Optional;
 @Service
 public class ReferenceServiceImpl implements ReferenceService {
 
-    ReferenceRepository referenceRepository;
+    private final ReferenceRepository referenceRepository;
 
     public ReferenceServiceImpl(ReferenceRepository referenceRepository) {
         this.referenceRepository = referenceRepository;

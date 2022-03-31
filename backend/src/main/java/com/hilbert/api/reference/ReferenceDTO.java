@@ -17,6 +17,6 @@ import javax.validation.constraints.Size;
 public class ReferenceDTO {
     private Long id;
     @NotBlank(message = "O nome não pode ser nulo")
-    @Size(min = 10, message = "Nome deve conter no mínimo 2 caracteres")
+    @Size(min = 10, message = "Nome deve conter no mínimo 10 caracteres")
     private String name;
 }
