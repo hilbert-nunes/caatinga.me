@@ -11,7 +11,7 @@
 	<groupId>com.hilbert.api</groupId>
 	<artifactId>caatinga-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Caatinga</name>
+	<name>caatinga</name>
 	<description>Uses of Caatinga trees and shrubs</description>
 	<properties>
 		<java.version>1.8</java.version>
@@ -64,11 +64,6 @@
 		<dependency>
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.security</groupId>
