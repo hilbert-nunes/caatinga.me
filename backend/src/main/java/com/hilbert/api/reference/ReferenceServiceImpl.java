@@ -89,9 +89,8 @@ public class ReferenceServiceImpl implements ReferenceService {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
         }
 
-        updateReferenceRecord(existsReference.get(), referenceDTO, id);
-
-        Reference reference = referenceRepository.save(existsReference.get());
+        referenceDTO.setId(id);
+        Reference reference = referenceRepository.save(convertDtoToEntity(referenceDTO));
 
         response.setData(convertEntityToDto(reference));
 
@@ -101,7 +100,7 @@ public class ReferenceServiceImpl implements ReferenceService {
 
     @Override
     public ResponseEntity<Response<String>> deleteReference(Long referenceId) {
-        Response<String> response = new Response<String>();
+        Response<String> response = new Response<>();
 
         boolean existsReference = referenceRepository.existsById(referenceId);
 

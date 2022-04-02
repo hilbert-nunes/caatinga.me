@@ -110,9 +110,8 @@ public class TreeServiceImpl implements TreeService{
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
         }
 
-        updateTreeRecord(existsTree.get(), treeDTO, id);
-
-        Tree tree = treeRepository.save(existsTree.get());
+        treeDTO.setId(existsTree.get().getId());
+        Tree tree = treeRepository.save(convertDtoToEntity(treeDTO));
 
         response.setData(convertEntityToDto(tree));
 
