@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import static org.springframework.http.ResponseEntity.status;
+
 @Service
 public class ReferenceServiceImpl implements ReferenceService {
 
@@ -46,7 +48,7 @@ public class ReferenceServiceImpl implements ReferenceService {
             ObjectError objectError = new ObjectError("Reference",
                     "Referência com id " + referenceId + " não encontrada");
             response.getErrors().add(objectError.getDefaultMessage());
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+            return status(HttpStatus.NOT_FOUND).body(response);
         }
 
         ReferenceDTO referenceDTO = convertEntityToDto(optionalReference.get());
@@ -68,7 +70,7 @@ public class ReferenceServiceImpl implements ReferenceService {
 
         response.setData(convertEntityToDto(reference));
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+        return status(HttpStatus.CREATED).body(response);
     }
 
     @Override
@@ -86,7 +88,7 @@ public class ReferenceServiceImpl implements ReferenceService {
             ObjectError objectError = new ObjectError("Reference",
                     "Referência com " + id + " não encontrado");
             response.getErrors().add(objectError.getDefaultMessage());
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+            return status(HttpStatus.BAD_REQUEST).body(response);
         }
 
         referenceDTO.setId(id);
@@ -94,7 +96,7 @@ public class ReferenceServiceImpl implements ReferenceService {
 
         response.setData(convertEntityToDto(reference));
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+        return status(HttpStatus.CREATED).body(response);
     }
 
 
@@ -106,7 +108,7 @@ public class ReferenceServiceImpl implements ReferenceService {
 
         if (!existsReference){
             response.getErrors().add("Referência com id " + referenceId + " não encontrada");
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+            return status(HttpStatus.NOT_FOUND).body(response);
         }
 
         referenceRepository.deleteById(referenceId);
