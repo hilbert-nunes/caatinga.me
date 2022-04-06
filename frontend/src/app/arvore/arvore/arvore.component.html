@@ -1,0 +1,137 @@
+<header class="text-gray-600 body-font">
+  <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+    <a routerLink="/home" class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-green-500 rounded-full" viewBox="0 0 24 24">
+        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+      </svg>
+      <span class="ml-3 text-xl">Caatinga</span>
+    </a>
+    <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
+      <a routerLink="/home" class="mr-5 hover:text-gray-900">Home</a>
+      <a routerLink="/home" class="mr-5 hover:text-gray-900">Blog</a>
+      <a routerLink="/home" class="mr-5 hover:text-gray-900">Sobre</a>
+      <a routerLink="/home" class="mr-5 hover:text-gray-900">Referências</a>
+    </nav>
+  </div>
+</header>
+
+<section class="text-gray-600 body-font">
+  <div class="container px-5 py-24 mx-auto flex flex-wrap header_caatinga">
+    <div class="lg:w-2/3 mx-auto">
+      <div class="flex flex-wrap w-full bg-gray-100 py-32 px-10 relative mb-4">
+        <img alt="gallery" class="w-full object-cover h-full object-center block opacity-25 absolute inset-0" src="https://dummyimage.com/820x340">
+        <div class="text-center relative z-10 w-full">
+          <h2 class="text-2xl text-gray-900 font-medium title-font mb-2">{{arvore.singleName}}</h2>
+          <p class="leading-relaxed">Skateboard +1 mustache fixie paleo lumbersexual.</p>
+
+        </div>
+      </div>
+      <div class="flex flex-wrap -mx-2">
+        <div class="px-2 w-1/2">
+          <div class="flex flex-wrap w-full bg-gray-100 sm:py-24 py-16 sm:px-10 px-6 relative">
+            <img alt="gallery" class="w-full object-cover h-full object-center block opacity-25 absolute inset-0" src="https://dummyimage.com/542x460">
+            <div class="text-center relative z-10 w-full">
+              <h2 class="text-xl text-gray-900 font-medium title-font mb-2">Shooting Stars</h2>
+              <p class="leading-relaxed">Skateboard +1 mustache fixie paleo lumbersexual.</p>
+
+            </div>
+          </div>
+        </div>
+        <div class="px-2 w-1/2">
+          <div class="flex flex-wrap w-full bg-gray-100 sm:py-24 py-16 sm:px-10 px-6 relative">
+            <img alt="gallery" class="w-full object-cover h-full object-center block opacity-25 absolute inset-0" src="https://dummyimage.com/542x420">
+            <div class="text-center relative z-10 w-full">
+              <h2 class="text-xl text-gray-900 font-medium title-font mb-2">Shooting Stars</h2>
+              <p class="leading-relaxed">Skateboard +1 mustache fixie paleo lumbersexual.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container px-5 py-24 mx-auto flex flex-wrap">
+  <div class="container lg:w-2/3 mx-auto">
+    <article class="flex flex-col shadow my-4">
+      <div class="bg-white flex flex-col justify-start p-6">
+
+        <!-- Nome + taxonomia + linha verde -->
+         <h1 class="sm:text-4xl text-2xl font-medium title-font mb-2 text-gray-900">{{arvore.singleName}}</h1>
+          <h2  class="font-medium mb-2 text-gray-900"><i>{{arvore.botanicalName}}</i></h2>
+          <div class="h-1 w-20 bg-green-500 rounded mb-6"></div>
+        <!-- Nome + taxonomia + linha verde -->
+
+        <h1 class="sm:text-2xl font-medium mb-2 text-gray-900">Família</h1>
+          <h2 class="pb-3 leading-relaxed text-gray-500" >{{arvore.family}}</h2>
+
+          <h1 class="sm:text-2xl font-medium mb-2 text-gray-900">Nomes populares</h1>
+          <p class="pb-3 leading-relaxed text-gray-500">{{arvore.popularName}}</p>
+
+          <div *ngIf="arvore.nameMeaning">
+            <h1 class="sm:text-2xl font-medium mb-2 text-gray-900">Significado dos nomes populares</h1>
+            <p class="pb-3 leading-relaxed text-gray-500">{{arvore.nameMeaning}}</p>
+          </div>
+
+          <h1 class="sm:text-2xl font-medium mb-2 text-gray-900">Descrição da planta</h1>
+          <p class="pb-3 leading-relaxed text-gray-500">{{arvore.generalDescription}}</p>
+
+          <h1 class="sm:text-2xl font-medium mb-2 text-gray-900">Como reconhecer a planta</h1>
+          <p class="pb-3 leading-relaxed text-gray-500">{{arvore.specialDescription}}</p>
+
+          <h1 class="sm:text-2xl font-medium mb-2 text-gray-900">Ocorrência e amplitude ecológica</h1>
+          <p class="pb-3 leading-relaxed text-gray-500">{{arvore.whereOccurs}}</p>
+
+          <h1 class="sm:text-2xl font-medium mb-2 text-gray-900">Informações ecológicas</h1>
+          <p class="pb-3 leading-relaxed text-gray-500">{{arvore.ecologicalInfo}}</p>
+
+          <h1 class="sm:text-2xl font-medium mb-2 text-gray-900">Propagação</h1>
+          <p class="pb-3 leading-relaxed text-gray-500">{{arvore.propagation}}</p>
+
+          <div *ngIf="arvore.managementGuide">
+            <h1  class="sm:text-2xl font-medium mb-2 text-gray-900">Guia de manejo</h1>
+            <p class="pb-3 leading-relaxed text-gray-500">{{arvore.managementGuide}}</p>
+        </div>
+
+        <div >
+          <h1  class="sm:text-2xl font-medium mb-2 text-gray-900">Importância cultural</h1>
+          <p class="pb-3 leading-relaxed text-gray-500">{{arvore.culturalImportance}}</p>
+      </div>
+
+        </div>
+  </article>
+  </div>
+
+</div>
+
+<footer class="text-gray-600 body-font">
+  <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+    <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-green-500 rounded-full" viewBox="0 0 24 24">
+        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+      </svg>
+      <span class="ml-3 text-xl">Caatinga</span>
+    </a>
+    <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2022 Caatinga —
+      <a href="https://github.com/hil-beer-t" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">@hil_beer_t</a>
+    </p>
+    <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+
+
+      <a href="https://www.instagram.com/hil_beer_t/" class="ml-3 text-gray-500">
+        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+          <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+          <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+        </svg>
+      </a>
+      <a href="https://www.linkedin.com/in/hilbert-dig%C3%AAnio/" class="ml-3 text-gray-500">
+        <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+          <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+          <circle cx="4" cy="4" r="2" stroke="none"></circle>
+        </svg>
+      </a>
+    </span>
+  </div>
+</footer>
+
+
