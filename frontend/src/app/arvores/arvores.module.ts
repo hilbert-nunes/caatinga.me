@@ -7,7 +7,6 @@ import { ArvoresComponent } from './arvores/arvores.component';
 
 @NgModule({
   declarations: [
-    ArvoresComponent
   ],
   imports: [
     CommonModule,

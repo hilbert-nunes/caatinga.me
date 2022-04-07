@@ -29,24 +29,31 @@
 <section>
   <div class="container px-1 py-24 mx-auto flex flex-wrap header_caatinga">
     <div class="container lg:w-2/3 mx-auto">
-      <a routerLink="/arvore" >
-        <article class="flex flex-col shadow my-4 card-arvore" *ngFor="let arvore of arvores">
+      <div *ngFor="let arvore of arvores">
+        <article class="flex flex-col shadow my-4 card-arvore">
+          <a routerLink="/arvore/{{arvore.singleName}}">
           <div class="bg-white flex flex-col justify-start p-6 transform transition duration-100 hover:drop-shadow-md">
 
-            <!-- Nome + taxonomia + linha verde -->
-             <h1 class="sm:text-2xl text-2xl font-medium title-font mb-2 text-gray-900">{{arvore.singleName}}</h1>
-              <h2  class="font-medium mb-2 text-gray-900">{{arvore.botanicalName}}</h2>
-              <div class="h-1 w-20 bg-green-500 rounded mb-6"></div>
-            <!-- Nome + taxonomia + linha verde -->
+          <!-- Nome + taxonomia + linha verde -->
+            <h1 class="sm:text-2xl text-2xl font-medium title-font mb-2 text-gray-900">{{arvore.singleName}}</h1>
+            <h2  class="font-medium mb-2 text-gray-900">{{arvore.botanicalName}}</h2>
+            <div class="h-1 w-20 bg-green-500 rounded mb-6"></div>
+          <!-- Nome + taxonomia + linha verde -->
 
-              <h1 class="sm:text-1xl font-medium mb-2 text-gray-900">Nomes populares</h1>
-              <p class="pb-2 leading-relaxed text-gray-500">{{arvore.popularName}}</p>
+            <h1 class="sm:text-1xl font-medium mb-2 text-gray-900">Nomes populares</h1>
+            <p class="pb-2 leading-relaxed text-gray-500">{{arvore.popularName}}</p>
 
-            </div>
-      </article>
-      </a>
+          </div>
+        </a>
+        </article>
+      </div>
     </div>
 
+  </div>
+  <div class="p-2 w-full">
+    <a routerLink="/home">
+    <button class="flex mx-auto text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">Voltar</button>
+  </a>
   </div>
 </section>
 

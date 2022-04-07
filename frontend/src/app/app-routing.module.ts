@@ -6,9 +6,14 @@ import { HomeComponent } from './home/home/home.component';
 
 const routes: Routes = [
 {
-    path: 'arvore',
+    path: 'arvore/:singleName',
     pathMatch: 'full',
     component: ArvoreComponent
+},
+{
+  path: 'arvore/:id',
+  // pathMatch: 'full',
+  component: ArvoreComponent
 },
 {
   path: 'arvores',

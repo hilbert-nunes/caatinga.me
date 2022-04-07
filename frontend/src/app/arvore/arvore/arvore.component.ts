@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Arvore } from '../model/arvore';
 import { ArvoreService } from '../service/arvore.service';
 
@@ -7,16 +8,23 @@ import { ArvoreService } from '../service/arvore.service';
   templateUrl: './arvore.component.html',
   styleUrls: ['./arvore.component.css']
 })
-export class ArvoreComponent implements OnInit {
+export class ArvoreComponent {
 
-  canShowNameMe: boolean = false;
-  arvore!: Arvore;
+  arvore?: Arvore;
 
-  constructor(private arvoreService:ArvoreService) {
+  constructor(private arvoreService:ArvoreService, private route: ActivatedRoute) {
+    this.returnArvore()
   }
 
-  ngOnInit(): void {
-    this.arvore = this.arvoreService.returnArvore();
+  returnArvore() {
+    const singleName = String(this.route.snapshot.paramMap.get('singleName'))
+    this.arvoreService.returnArvore(singleName).subscribe((item) => {
+
+      const data = item.data
+
+      this.arvore = data
+
+    })
   }
 
 }
