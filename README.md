@@ -4,8 +4,7 @@
 
 Mostra toda a vasta utilidade e usos das árvores e arbustos da Caatinga, tão desconhecida por todos.
 
-![Front mock](https://user-images.githubusercontent.com/52302576/162094381-75da4edd-b13a-4605-b191-d4ca2d668711.PNG)
-
+![Front mock](https://user-images.githubusercontent.com/52302576/162342259-3352276c-d0af-4fe7-b518-162f75303ff1.PNG)
 
 ## Mapa do Maroto
 
@@ -13,8 +12,9 @@ Mostra toda a vasta utilidade e usos das árvores e arbustos da Caatinga, tão d
   - CRUD completo de árvores ✔️
 - Frontend 
   - Mock ✔️
-- Integração 
-- Rota de CREATE e UPDATE <strong>segura<strong> e administrável para inserção de novas árvores pela comunidade
+- Integração ✔️
+- CRUD pela aplicação web
+- Segurança
 - Job de email toda vez que uma árvore for adicionada
 
 ## Stacks
