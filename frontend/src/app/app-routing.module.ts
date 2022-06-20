@@ -1,10 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ArvoreUpdateComponent } from './arvore/arvore/arvore-update.component';
 import { ArvoreComponent } from './arvore/arvore/arvore.component';
 import { ArvoresComponent } from './arvores/arvores/arvores.component';
 import { HomeComponent } from './home/home/home.component';
 
 const routes: Routes = [
+{
+  path: 'arvore-update/:singleName',
+  pathMatch: 'full',
+  component: ArvoreUpdateComponent
+},
 {
     path: 'arvore/:singleName',
     pathMatch: 'full',

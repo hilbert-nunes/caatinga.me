@@ -8,11 +8,14 @@ import { ArvoreService } from '../service/arvore.service';
   templateUrl: './arvore.component.html',
   styleUrls: ['./arvore.component.css']
 })
-export class ArvoreComponent {
+export class ArvoreComponent implements OnInit{
 
-  arvore?: Arvore;
+  arvore!: Arvore;
 
   constructor(private arvoreService:ArvoreService, private route: ActivatedRoute) {
+  }
+
+  ngOnInit(): void {
     this.returnArvore()
   }
 

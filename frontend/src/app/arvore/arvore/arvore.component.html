@@ -51,7 +51,7 @@
   </div>
 </section>
 
-<div class="container px-5 py-24 mx-auto flex flex-wrap">
+<div class="container px-5 py-24 mx-auto flex flex-wrap" *ngIf="arvore">
   <div class="container lg:w-2/3 mx-auto">
     <article class="flex flex-col shadow my-4">
       <div  *ngIf="arvore" class="bg-white flex flex-col justify-start p-6">
@@ -99,12 +99,28 @@
       </div>
 
         </div>
-  </article>
-  <div class="p-2 w-full">
-    <a routerLink="/arvores">
-    <button class="flex mx-auto text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">Voltar</button>
-  </a>
-  </div>
+    </article>
+
+    <div class="flex justify-center">
+      <div class="p-2 w-full">
+        <a routerLink="/arvore-update/{{arvore.singleName}}">
+        <button class="flex mx-auto text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">Editar</button>
+      </a>
+      </div>
+
+      <div class="p-2 w-full">
+        <a routerLink="/arvore-update/{{arvore.singleName}}">
+        <button class="flex mx-auto text-white bg-red-500 border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-lg">Excluir</button>
+      </a>
+      </div>
+
+      <div class="p-2 w-full">
+        <a routerLink="/arvores">
+        <button class="flex mx-auto text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">Voltar</button>
+      </a>
+      </div>
+    </div>
+
   </div>
 
 </div>

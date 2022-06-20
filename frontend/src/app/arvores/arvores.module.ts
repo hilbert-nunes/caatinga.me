@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ArvoresRoutingModule } from './arvores-routing.module';
 import { ArvoresComponent } from './arvores/arvores.component';
+import { FormsModule, NgForm } from '@angular/forms';
 
 
 @NgModule({
@@ -10,6 +11,7 @@ import { ArvoresComponent } from './arvores/arvores.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     ArvoresRoutingModule
   ]
 })
