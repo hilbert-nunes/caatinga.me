@@ -12,8 +12,8 @@ Mostra toda a vasta utilidade e usos das árvores e arbustos da Caatinga, tão d
   - CRUD completo de árvores ✔️
 - Frontend 
   - Mock ✔️
+  - CRUD pela aplicação web✔️
 - Integração ✔️
-- CRUD pela aplicação web
 - Segurança
 - Job de email toda vez que uma árvore for adicionada
 
