@@ -32,7 +32,6 @@ export class ArvoreUpdateComponent implements OnInit, OnChanges{
     })
   }
 
-
   update():void {
     this.arvoreService.update(this.arvore).subscribe({
       next: arvoreParam => console.log('saved with success', arvoreParam),

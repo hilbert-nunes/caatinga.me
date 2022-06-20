@@ -26,5 +26,10 @@ export class ArvoreService {
   update(arvore: Arvore): Observable<Response<Arvore>> {
     return this.http.put<Response<Arvore>>(`${this.apiUrl}/api/v1/caatinga/tree/${arvore.id}`, arvore)
   }
+
+  deleteArvore(arvoreId: number): Observable<Response<Arvore>> {
+    console.log(arvoreId)
+    return this.http.delete<Response<Arvore>>(`${this.apiUrl}/api/v1/caatinga/tree/${arvoreId}`)
+  }
 }
 

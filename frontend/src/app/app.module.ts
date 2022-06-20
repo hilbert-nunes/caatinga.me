@@ -10,6 +10,7 @@ import { ArvoreComponent } from './arvore/arvore/arvore.component';
 import { HomeComponent } from './home/home/home.component';
 import { ArvoresComponent } from './arvores/arvores/arvores.component';
 import { ArvoreUpdateComponent } from './arvore/arvore/arvore-update.component';
+import { ArvoreCreateComponent } from './arvore/arvore/arvore-create.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { ArvoreUpdateComponent } from './arvore/arvore/arvore-update.component';
     ArvoreComponent,
     ArvoresComponent,
     ArvoreUpdateComponent,
+    ArvoreCreateComponent,
     HomeComponent
   ],
   imports: [

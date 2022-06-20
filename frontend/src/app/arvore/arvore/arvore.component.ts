@@ -13,6 +13,7 @@ export class ArvoreComponent implements OnInit{
   arvore!: Arvore;
 
   constructor(private arvoreService:ArvoreService, private route: ActivatedRoute) {
+
   }
 
   ngOnInit(): void {
@@ -27,6 +28,14 @@ export class ArvoreComponent implements OnInit{
 
       this.arvore = data
 
+    })
+  }
+
+  delete(){
+    console.log('tentando excluir')
+    this.arvoreService.deleteArvore(this.arvore.id!).subscribe({
+      next: item => console.log(item),
+      error: err => console.log(err)
     })
   }
 

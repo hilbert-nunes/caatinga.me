@@ -1,5 +1,5 @@
 export interface Arvore {
-  id: number,
+  id?: number,
   singleName: string,
   popularName: string | null,
   family: string,

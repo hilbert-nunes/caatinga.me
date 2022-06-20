@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ArvoreCreateComponent } from './arvore/arvore/arvore-create.component';
 import { ArvoreUpdateComponent } from './arvore/arvore/arvore-update.component';
 import { ArvoreComponent } from './arvore/arvore/arvore.component';
 import { ArvoresComponent } from './arvores/arvores/arvores.component';
@@ -15,6 +16,10 @@ const routes: Routes = [
     path: 'arvore/:singleName',
     pathMatch: 'full',
     component: ArvoreComponent
+},
+{ path: 'arvore-create',
+  pathMatch: 'full',
+  component: ArvoreCreateComponent
 },
 {
   path: 'arvore/:id',
