@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Arvore } from '../model/arvore';
 import { ArvoreService } from '../service/arvore.service';
 
@@ -12,7 +12,7 @@ export class ArvoreComponent implements OnInit{
 
   arvore!: Arvore;
 
-  constructor(private arvoreService:ArvoreService, private route: ActivatedRoute) {
+  constructor(private arvoreService:ArvoreService, private route: ActivatedRoute, private router: Router) {
 
   }
 
@@ -34,7 +34,7 @@ export class ArvoreComponent implements OnInit{
   delete(){
     console.log('tentando excluir')
     this.arvoreService.deleteArvore(this.arvore.id!).subscribe({
-      next: item => console.log(item),
+      next: item => {console.log(item), this.router.navigate(['home'])},
       error: err => console.log(err)
     })
   }

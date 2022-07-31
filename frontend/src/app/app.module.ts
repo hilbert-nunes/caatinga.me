@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home/home.component';
 import { ArvoresComponent } from './arvores/arvores/arvores.component';
 import { ArvoreUpdateComponent } from './arvore/arvore/arvore-update.component';
 import { ArvoreCreateComponent } from './arvore/arvore/arvore-create.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ArvoreCreateComponent } from './arvore/arvore/arvore-create.component';
     ArvoresComponent,
     ArvoreUpdateComponent,
     ArvoreCreateComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

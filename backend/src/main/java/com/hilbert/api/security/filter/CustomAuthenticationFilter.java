@@ -39,6 +39,8 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
         log.info("Username is: {}", username);
         log.info("Username is: {}", password);
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username, password);
+        response.addHeader("Access-Control-Allow-Origin", "*");
+
 
         return authenticationManager.authenticate(authenticationToken);
     }
@@ -63,6 +65,7 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
                 .withIssuer(request.getRequestURL().toString())
                 .sign(algorithm);
 
+        //response.addHeader("Access-Control-Allow-Origin", "*");
 //        response.setHeader("access_token", access_token);
 //        response.setHeader("refresh_token", refresh_token);
 

@@ -1,5 +1,5 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Arvore } from '../model/arvore';
 import { ArvoreService } from '../service/arvore.service';
 
@@ -11,7 +11,7 @@ export class ArvoreUpdateComponent implements OnInit, OnChanges{
 
   arvore!: Arvore;
 
-  constructor(private arvoreService:ArvoreService, private route: ActivatedRoute) {
+  constructor(private arvoreService:ArvoreService, private route: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -34,7 +34,7 @@ export class ArvoreUpdateComponent implements OnInit, OnChanges{
 
   update():void {
     this.arvoreService.update(this.arvore).subscribe({
-      next: arvoreParam => console.log('saved with success', arvoreParam),
+      next: arvoreParam => {console.log('saved with success', arvoreParam), this.router.navigate(['home'])},
       error: err => console.log(err)
     })
   }

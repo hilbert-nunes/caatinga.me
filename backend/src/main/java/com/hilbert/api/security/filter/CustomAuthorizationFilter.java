@@ -53,6 +53,7 @@ public class CustomAuthorizationFilter extends OncePerRequestFilter {
                             new UsernamePasswordAuthenticationToken(username, null, authorities);
 
                     SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+                    //response.addHeader("Access-Control-Allow-Origin", "*");
                     filterChain.doFilter(request, response);
                 } catch (Exception e){
                     log.error("Error logging in: {}", e.getMessage());

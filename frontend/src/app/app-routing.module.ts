@@ -1,3 +1,4 @@
+import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ArvoreCreateComponent } from './arvore/arvore/arvore-create.component';
@@ -30,6 +31,11 @@ const routes: Routes = [
   path: 'arvores',
   pathMatch: 'full',
   component: ArvoresComponent
+},
+{
+  path: 'login',
+  pathMatch: 'full',
+  component: LoginComponent
 },
 {
   path: '',
