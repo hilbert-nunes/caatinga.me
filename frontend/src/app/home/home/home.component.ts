@@ -18,4 +18,8 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/arvores']);
 }
 
+  login(){
+    this.router.navigate(['/login']);
+  }
+
 }

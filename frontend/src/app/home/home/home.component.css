@@ -4,6 +4,6 @@
 
 .img { width: 100%; height: auto; padding-top: 10px; margin-bottom: -10px;}
 
-.header_caatinga {
-  margin-bottom: -60px;
+.login-interno {
+  cursor: pointer;
 }
