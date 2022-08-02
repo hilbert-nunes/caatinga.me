@@ -8,9 +8,7 @@
     </a>
     <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
       <a routerLink="/home" class="mr-5 hover:text-gray-900">Home</a>
-      <a routerLink="/home" class="mr-5 hover:text-gray-900">Blog</a>
-      <a routerLink="/home" class="mr-5 hover:text-gray-900">Sobre</a>
-      <a routerLink="/home" class="mr-5 hover:text-gray-900">Referências</a>
+      <a routerLink="/arvores" class="mr-5 hover:text-gray-900">Lista</a>
     </nav>
   </div>
 </header>
@@ -40,8 +38,10 @@
             <div class="h-1 w-20 bg-green-500 rounded mb-6"></div>
           <!-- Nome + taxonomia + linha verde -->
 
-            <h1 class="sm:text-1xl font-medium mb-2 text-gray-900">Nomes populares</h1>
-            <p class="pb-2 leading-relaxed text-gray-500">{{arvore.popularName}}</p>
+            <div *ngIf="arvore.popularName">
+              <h1 class="sm:text-1xl font-medium mb-2 text-gray-900">Nomes populares</h1>
+              <p class="pb-2 leading-relaxed text-gray-500">{{arvore.popularName}}</p>
+            </div>
 
           </div>
         </a>
