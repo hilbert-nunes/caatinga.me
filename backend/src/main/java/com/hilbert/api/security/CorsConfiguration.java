@@ -13,6 +13,7 @@ public class CorsConfiguration implements WebMvcConfigurer {
                 .allowedOrigins("http://localhost:4200/login")
                 .allowedOrigins("http://localhost:4200/login")
                 .allowedOrigins("http://localhost:4200/*")
+                .allowedOrigins("http://ngcaatinga.s3-website-sa-east-1.amazonaws.com/login")
                 .allowedOrigins("*")
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD", "TRACE", "CONNECT");
     }

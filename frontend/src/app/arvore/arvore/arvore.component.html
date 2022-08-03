@@ -13,27 +13,22 @@
   </div>
 </header>
 
-<section class="text-gray-600 body-font">
-  <div class="container px-5 py-24 mx-auto flex flex-wrap header_caatinga">
+<section *ngIf="retrievedImageLeft" class="text-gray-600 body-font">
+  <div class="px-5 py-24 mx-auto flex flex-wrap">
     <div class="lg:w-2/3 mx-auto">
       <div class="flex flex-wrap w-full bg-gray-100 py-32 px-10 relative mb-4">
-        <img alt="gallery" class="w-full object-cover h-full object-center block opacity-25 absolute inset-0" src="https://dummyimage.com/820x340">
-        <div class="text-center relative z-10 w-full">
-          <h2 *ngIf="arvore" class="text-2xl text-gray-900 font-medium title-font mb-2">{{arvore.singleName}}</h2>
-        </div>
+        <img *ngIf="retrievedImageTop" alt="gallery" class="w-full object-cover h-full object-center block absolute inset-0" [src]="retrievedImageTop">
       </div>
       <div class="flex flex-wrap -mx-2">
-        <div class="px-2 w-1/2">
+        <div class="px-2 w-1/2 h-1/2">
           <div class="flex flex-wrap w-full bg-gray-100 sm:py-24 py-16 sm:px-10 px-6 relative">
-            <img alt="gallery" class="w-full object-cover h-full object-center block opacity-25 absolute inset-0" src="https://dummyimage.com/542x460">
-
+            <img *ngIf="retrievedImageLeft" alt="gallery" class="w-full object-cover h-full object-center block absolute inset-0" [src]="retrievedImageLeft">
           </div>
         </div>
-        <div class="px-2 w-1/2">
+        <div class="px-2 w-1/2 h-1/2">
           <div class="flex flex-wrap w-full bg-gray-100 sm:py-24 py-16 sm:px-10 px-6 relative">
-            <img alt="gallery" class="w-full object-cover h-full object-center block opacity-25 absolute inset-0" src="https://dummyimage.com/542x420">
+            <img *ngIf="retrievedImageRight" alt="gallery" class="w-full object-cover h-full object-center block absolute inset-0" [src]="retrievedImageRight">
             <div class="text-center relative z-10 w-full">
-
             </div>
           </div>
         </div>
@@ -53,7 +48,7 @@
           <div class="h-1 w-20 bg-green-500 rounded mb-6"></div>
         <!-- Nome + taxonomia + linha verde -->
 
-        <h1 class="sm:text-2xl font-medium mb-2 text-gray-900">Família</h1>
+          <h1 class="sm:text-2xl font-medium mb-2 text-gray-900">Família</h1>
           <h2 class="pb-3 leading-relaxed text-gray-500" >{{arvore.family}}</h2>
 
           <h1 class="sm:text-2xl font-medium mb-2 text-gray-900">Nomes populares</h1>

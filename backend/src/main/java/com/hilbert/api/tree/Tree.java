@@ -54,6 +54,8 @@ public class Tree {
 
     private String culturalImportance;
 
+//    @OneToMany
+//    private String image;
 
     @ManyToMany(cascade = {
             CascadeType.MERGE

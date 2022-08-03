@@ -21,7 +21,7 @@ import { LoginComponent } from './login/login.component';
     ArvoreUpdateComponent,
     ArvoreCreateComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

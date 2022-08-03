@@ -24,15 +24,15 @@ public class CaatingaApplication {
 		return new BCryptPasswordEncoder();
 	}
 
-//	@Bean
-//	CommandLineRunner run(AppUserService appUserService){
-//		return args -> {
-//			appUserService.saveRole(new Role(null,"ROLE_USER"));
-//			appUserService.saveRole(new Role(null,"ROLE_ADMIN"));
-//
-//			appUserService.saveUser(new AppUser(null, "Hilbert Digenio", "hil_beer_t", "123321", new ArrayList<>()));
-//
-//			appUserService.addRoleToUser("hil_beer_t", "ROLE_ADMIN");
-//		};
-//	}
+	@Bean
+	CommandLineRunner run(AppUserService appUserService){
+		return args -> {
+			appUserService.saveRole(new Role(null,"ROLE_USER"));
+			appUserService.saveRole(new Role(null,"ROLE_ADMIN"));
+
+			appUserService.saveUser(new AppUser(null, "Hilbert Digenio", "hil_beer_t", "123321", new ArrayList<>()));
+
+			appUserService.addRoleToUser("hil_beer_t", "ROLE_ADMIN");
+		};
+	}
 }
