@@ -1,4 +1,4 @@
-# [Caatinga API](https://caatinga.netlify.app/home)
+# [Caatinga.me](https://caatinga.netlify.app/home)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/ed9f5d44-3832-47b1-9d42-0d39cd76699c/deploy-status)](https://app.netlify.com/sites/caatinga/deploys)
 
@@ -14,8 +14,8 @@ Mostra toda a vasta utilidade e usos das árvores e arbustos da Caatinga, tão d
   - Mock ✔️
   - CRUD pela aplicação web✔️
 - Integração ✔️
-- Segurança
-- Job de email toda vez que uma árvore for adicionada
+- Segurança ✔️
+- Imagens
 
 ## Stacks
 
