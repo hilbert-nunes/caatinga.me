@@ -14,7 +14,18 @@
   </div>
 </header>
 
-<div class="container px-5 py-24 mx-auto">
+<div class= "container px-5 py-5 mx-auto">
+  <div class="container">
+
+        <!-- Nome + taxonomia + linha verde -->
+         <h1 class="sm:text-4xl text-2xl font-medium title-font mb-2 text-gray-900">Criação de Árvore/Arbusto:</h1>
+          <div class="h-1 w-20 bg-green-500 rounded"></div>
+        <!-- Nome + taxonomia + linha verde -->
+  </div>
+
+</div>
+
+<div class="container px-5 py-5 mx-auto">
   <form class="container" [formGroup]="arvoreCreateForm" #arvoreCreateFormId="ngForm">
 
     <div class="relative mt-3 w-40 sm:w-auto xl:mr-4 lg:mr-0 sm:mr-4 mr-2">
@@ -99,75 +110,9 @@
       <textarea [(ngModel)]="arvore.culturalImportance" type="text" name="culturalImportance" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-green-200 focus:border-green-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"></textarea>
     </div>
 
-    <div class="relative mt-3 w-40 sm:w-auto xl:mr-4 lg:mr-0 sm:mr-4 mr-2">
-      <div class="mb-3 w-96">
-        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="file_input_top">Upload image top</label>
-        <input (change)="onFileChangedImageTop($event)" class="form-control
-        block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:ring-2 focus:ring-green-200 focus:border-green-500 focus:outline-none" type="file" id="file_input_top">
-      </div>
-      <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_top_help">JPG (MAX. 1 MB)</p>
-    </div>
-
-    <div class="relative mt-3 w-40 sm:w-auto xl:mr-4 lg:mr-0 sm:mr-4 mr-2">
-      <div class="mb-3 w-96">
-        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="file_input_left">Upload image left</label>
-        <input (change)="onFileChangedImageLeft($event)" class="form-control
-        block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:ring-2 focus:ring-green-200 focus:border-green-500 focus:outline-none" type="file" id="file_input_left">
-      </div>
-      <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_left_help">JPG (MAX. 1 MB)</p>
-    </div>
-
-    <div class="relative mt-3 w-40 sm:w-auto xl:mr-4 lg:mr-0 sm:mr-4 mr-2">
-      <div class="mb-3 w-96">
-        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="file_input_right">Upload image right</label>
-        <input (change)="onFileChangedImageRight($event)" class="form-control
-        block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:ring-2 focus:ring-green-200 focus:border-green-500 focus:outline-none" type="file" id="file_input_right">
-      </div>
-      <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_right_help">JPG (MAX. 1 MB)</p>
-    </div>
-
     <div class="mt-10 flex justify-center">
       <button [disabled]="arvoreCreateFormId.invalid" (click)="save()" class="inline-flex mr-20 text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded text-lg">Save</button>
-      <button [routerLink]="['/home']" class="inline-flex text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded text-lg">Back</button>
+      <button (click)="returnHome()" class="inline-flex text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded text-lg">Back</button>
     </div>
 
   </form>

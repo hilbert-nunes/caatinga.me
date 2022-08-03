@@ -1,7 +1,6 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ImageService } from 'src/app/image/image.service';
 import { Arvore } from '../model/arvore';
 import { ArvoreService } from '../service/arvore.service';
 
@@ -14,14 +13,8 @@ export class ArvoreCreateComponent implements OnInit{
   arvore: Arvore
 
   arvoreCreateForm!: FormGroup
-  selectedFileTop: any;
-  selectedFileLeft: any;
-  selectedFileRight: any;
 
   constructor(private arvoreService:ArvoreService,
-     private imageServiceTop:ImageService,
-     private imageServiceRight:ImageService,
-     private imageServiceLeft:ImageService,
      private route: ActivatedRoute,
      private router: Router) {
     this.arvore = {
@@ -66,21 +59,6 @@ export class ArvoreCreateComponent implements OnInit{
     return this.arvoreCreateForm.get('generalDescription')!
   }
 
-  public onFileChangedImageTop(event: any) {
-    //Select File
-    this.selectedFileTop = event.target.files[0];
-  }
-
-  public onFileChangedImageLeft(event: any) {
-    //Select File
-    this.selectedFileLeft = event.target.files[0];
-  }
-
-  public onFileChangedImageRight(event: any) {
-    //Select File
-    this.selectedFileRight = event.target.files[0];
-  }
-
   save(): void{
 
     if(this.arvoreCreateForm.invalid) {
@@ -90,30 +68,15 @@ export class ArvoreCreateComponent implements OnInit{
 
     this.arvoreService.save(this.arvore).subscribe({
       next: arvoreParam =>
-      {console.log('saved with success', this.arvore)},
-      error: err => console.log(err)
-    })
-
-    this.imageServiceTop.onUpload(this.selectedFileTop).subscribe({
-      next: imageParam => {
-        console.log('saved with success', this.selectedFileTop)
+      {console.log('saved with success', this.arvore),
+        this.router.navigate([`${'home'}`]);
       },
       error: err => console.log(err)
     })
+  }
 
-    this.imageServiceLeft.onUpload(this.selectedFileLeft).subscribe({
-      next: imageParam => {
-        console.log('saved with success', this.selectedFileLeft)
-      },
-      error: err => console.log(err)
-    })
-
-    this.imageServiceRight.onUpload(this.selectedFileRight).subscribe({
-      next: imageParam => {
-        console.log('saved with success', this.selectedFileRight)
-      },
-      error: err => console.log(err)
-    })
+  returnHome(): void {
+    this.router.navigate([`${'home'}`]);
   }
 
 }
