@@ -14,10 +14,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  btnClick(){
-    this.router.navigate(['/arvores']);
-}
-
   login(){
     this.router.navigate(['/login']);
   }

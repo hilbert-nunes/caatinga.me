@@ -1,36 +1,31 @@
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './public/components/login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ArvoreCreateComponent } from './arvore/arvore/arvore-create.component';
-import { ArvoreUpdateComponent } from './arvore/arvore/arvore-update.component';
-import { ArvoreComponent } from './arvore/arvore/arvore.component';
-import { ArvoresComponent } from './arvores/arvores/arvores.component';
-import { HomeComponent } from './home/home/home.component';
+import { HomeComponent } from './public/components/home/home.component';
+import { UpdateTreeComponent } from './private/components/update-tree/update-tree.component';
+import { CreateTreeComponent } from './private/components/create-tree/create-tree.component';
+import { TreeComponent } from './public/components/tree/tree.component';
+import { TreeListComponent } from './public/components/tree-list/tree-list.component';
 
 const routes: Routes = [
 {
   path: 'arvore-update/:singleName',
   pathMatch: 'full',
-  component: ArvoreUpdateComponent
+  component: UpdateTreeComponent
 },
 {
     path: 'arvore/:singleName',
     pathMatch: 'full',
-    component: ArvoreComponent
+    component: TreeComponent
 },
 { path: 'arvore-create',
   pathMatch: 'full',
-  component: ArvoreCreateComponent
-},
-{
-  path: 'arvore/:id',
-  // pathMatch: 'full',
-  component: ArvoreComponent
+  component: CreateTreeComponent
 },
 {
   path: 'arvores',
   pathMatch: 'full',
-  component: ArvoresComponent
+  component: TreeListComponent
 },
 {
   path: 'login',

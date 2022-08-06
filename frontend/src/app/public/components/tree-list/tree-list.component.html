@@ -1,0 +1,87 @@
+<app-header></app-header>
+<section>
+  <div class="container px-5 py-5 mx-auto flex flex-wrap">
+    <div class="container mx-auto">
+      <h1
+        class="sm:text-4xl text-2xl font-medium title-font mb-2 text-gray-900"
+      >
+        Todas as árvores
+      </h1>
+      <div class="h-1 w-20 bg-green-500 rounded"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container px-1 py-5 mx-auto flex flex-wrap">
+    <div class="container lg:w-2/3 mx-auto">
+      <article class="flex flex-col shadow card-tree">
+        <div
+          class="flex flex-col justify-start p-6 transform transition duration-100 hover:drop-shadow-md"
+        >
+          <label
+            for="search-bar"
+            class="sm:text-2xl text-2xl font-small title-font form-label inline-block mb-2 text-gray-700"
+            >Pesquisa</label
+          >
+
+          <input
+            type="search-bar"
+            id="search-bar"
+            name="search-bar"
+            placeholder="Nome"
+            [(ngModel)]="filter"
+            class="w-full bg-white rounded border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+          />
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <div class="container px-1 py-5 mx-auto flex flex-wrap">
+    <div class="container lg:w-2/3 mx-auto">
+      <div *ngFor="let tree of filteredTrees">
+        <article class="flex flex-col shadow my-4 card-tree">
+          <a routerLink="/arvore/{{ tree.singleName }}">
+            <div
+              class="bg-white flex flex-col justify-start p-6 transform transition duration-100 hover:drop-shadow-md"
+            >
+              <!-- Nome + taxonomia + linha verde -->
+              <h1
+                class="sm:text-2xl text-2xl font-medium title-font mb-2 text-gray-900"
+              >
+                {{ tree.singleName }}
+              </h1>
+              <h2 class="font-medium mb-2 text-gray-900">
+                {{ tree.botanicalName }}
+              </h2>
+              <div class="h-1 w-20 bg-green-500 rounded mb-6"></div>
+              <!-- Nome + taxonomia + linha verde -->
+
+              <div *ngIf="tree.popularName">
+                <h1 class="sm:text-1xl font-medium mb-2 text-gray-900">
+                  Nomes populares
+                </h1>
+                <p class="pb-2 leading-relaxed text-gray-500">
+                  {{ tree.popularName }}
+                </p>
+              </div>
+            </div>
+          </a>
+        </article>
+      </div>
+    </div>
+  </div>
+  <div class="flex justify-center">
+    <div class="p-2 w-full">
+      <a routerLink="/home">
+        <button
+          class="flex mx-auto text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg"
+        >
+          Voltar
+        </button>
+      </a>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>

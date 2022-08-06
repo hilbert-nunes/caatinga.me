@@ -1,0 +1,341 @@
+<app-header></app-header>
+
+<div class="container px-5 py-5 mx-auto">
+  <div class="container">
+    <!-- Nome + taxonomia + linha verde -->
+    <h1 class="sm:text-4xl text-2xl font-medium title-font mb-2 text-gray-900">
+      Criação de Árvore/Arbusto:
+    </h1>
+    <div class="h-1 w-20 bg-green-500 rounded"></div>
+    <!-- Nome + taxonomia + linha verde -->
+  </div>
+</div>
+
+<div class="container px-5 py-5 mx-auto">
+  <form
+    class="container"
+    [formGroup]="treeCreateForm"
+    #treeCreateFormId="ngForm"
+  >
+    <div class="relative mt-3 w-40 sm:w-auto xl:mr-4 lg:mr-0 sm:mr-4 mr-2">
+      <label
+        for="singleName"
+        class="leading-7 text-sm font-medium text-gray-700"
+        >Nome</label
+      ><span
+        *ngIf="singleName.errors?.['required']"
+        class="font-medium tracking-wide text-red-500 text-xs mt-1 ml-1"
+        >*</span
+      >
+      <span
+        *ngIf="!singleName.errors?.['required']"
+        class="font-medium tracking-wide text-gray-700 text-xs mt-1 ml-1"
+        >*</span
+      >
+      <input
+        [(ngModel)]="tree.singleName"
+        type="text"
+        formControlName="singleName"
+        minlength="2"
+        maxlength="32"
+        required
+        class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-green-200 focus:border-green-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+      />
+      <span
+        *ngIf="singleName.errors?.['required']"
+        class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1"
+        >O nome da árvore/arbusto não pode ser nula/vazia</span
+      >
+      <span
+        *ngIf="singleName.errors?.['minlength']"
+        class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1"
+        >Nome deve conter entre 2 and 32 caracteres</span
+      >
+      <span
+        *ngIf="singleName.errors?.['maxlenght']"
+        class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1"
+        >Nome deve conter entre 2 and 32 caracteres</span
+      >
+    </div>
+
+    <div class="relative mt-3 w-40 sm:w-auto xl:mr-4 lg:mr-0 sm:mr-4 mr-2">
+      <label for="family" class="leading-7 text-sm font-medium text-gray-700"
+        >Família</label
+      ><span
+        *ngIf="family.errors?.['required']"
+        class="font-medium tracking-wide text-red-500 text-xs mt-1 ml-1"
+        >*</span
+      >
+      <span
+        *ngIf="!family.errors?.['required']"
+        class="font-medium tracking-wide text-gray-700 text-xs mt-1 ml-1"
+        >*</span
+      >
+      <input
+        [(ngModel)]="tree.family"
+        type="text"
+        name="family"
+        formControlName="family"
+        minlength="2"
+        maxlength="32"
+        required
+        class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-green-200 focus:border-green-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+      />
+      <span
+        *ngIf="family.errors?.['required']"
+        class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1"
+        >A família da árvore/arbusto não pode ser nula/vazia</span
+      >
+      <span
+        *ngIf="family.errors?.['minlength']"
+        class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1"
+        >Família deve conter entre 2 e 32 caracteres</span
+      >
+      <span
+        *ngIf="family.errors?.['maxlenght']"
+        class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1"
+        >Família deve conter entre 2 e 32 caracteres</span
+      >
+    </div>
+
+    <div class="relative mt-3 w-40 sm:w-auto xl:mr-4 lg:mr-0 sm:mr-4 mr-2">
+      <label
+        for="botanicalName"
+        class="leading-7 text-sm font-medium text-gray-700"
+        >Taxonomia</label
+      ><span
+        *ngIf="botanicalName.errors?.['required']"
+        class="font-medium tracking-wide text-red-500 text-xs mt-1 ml-1"
+        >*</span
+      >
+      <span
+        *ngIf="!botanicalName.errors?.['required']"
+        class="font-medium tracking-wide text-gray-700 text-xs mt-1 ml-1"
+        >*</span
+      >
+      <input
+        [(ngModel)]="tree.botanicalName"
+        type="text"
+        name="botanicalName"
+        formControlName="botanicalName"
+        minlength="2"
+        maxlength="32"
+        required
+        class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-green-200 focus:border-green-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+      />
+      <span
+        *ngIf="botanicalName.errors?.['required']"
+        class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1"
+        >Taxonomia da árvore/arbusto não pode ser nula/vazia</span
+      >
+      <span
+        *ngIf="botanicalName.errors?.['minlength']"
+        class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1"
+        >Taxonomia deve conter entre 2 e 32 caracteres</span
+      >
+      <span
+        *ngIf="botanicalName.errors?.['maxlenght']"
+        class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1"
+        >Taxonomia deve conter entre 2 e 32 caracteres</span
+      >
+    </div>
+
+    <div class="relative mt-3 w-40 sm:w-auto xl:mr-4 lg:mr-0 sm:mr-4 mr-2">
+      <label
+        for="popularName"
+        class="leading-7 text-sm font-medium text-gray-700"
+        >Nomes populares</label
+      >
+      <textarea
+        [(ngModel)]="tree.popularName"
+        type="text"
+        name="popularName"
+        class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-green-200 focus:border-green-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+      ></textarea>
+    </div>
+
+    <div class="relative mt-3 w-40 sm:w-auto xl:mr-4 lg:mr-0 sm:mr-4 mr-2">
+      <label
+        for="nameMeaning"
+        class="leading-7 text-sm font-medium text-gray-700"
+        >Significado dos nomes populares</label
+      >
+      <textarea
+        [(ngModel)]="tree.nameMeaning"
+        type="text"
+        name="nameMeaning"
+        class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-green-200 focus:border-green-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+      ></textarea>
+    </div>
+
+    <div class="relative mt-3 w-40 sm:w-auto xl:mr-4 lg:mr-0 sm:mr-4 mr-2">
+      <label
+        for="generalDescription"
+        class="leading-7 text-sm font-medium text-gray-700"
+        >Descrição da planta</label
+      ><span
+        *ngIf="generalDescription.errors?.['required']"
+        class="font-medium tracking-wide text-red-500 text-xs mt-1 ml-1"
+        >*</span
+      >
+      <span
+        *ngIf="!generalDescription.errors?.['required']"
+        class="font-medium tracking-wide text-gray-700 text-xs mt-1 ml-1"
+        >*</span
+      >
+      <textarea
+        [(ngModel)]="tree.generalDescription"
+        type="text"
+        name="generalDescription"
+        formControlName="generalDescription"
+        minlength="100"
+        maxlength="10000"
+        required
+        class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-green-200 focus:border-green-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+      ></textarea>
+      <span
+        *ngIf="generalDescription.errors?.['required']"
+        class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1"
+        >A descrição geral da árvore/arbusto não pode ser nula/vazia</span
+      >
+      <span
+        *ngIf="generalDescription.errors?.['minlength']"
+        class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1"
+        >Descrição geral deve conter entre 100 e 10000 caracteres</span
+      >
+      <span
+        *ngIf="generalDescription.errors?.['maxlenght']"
+        class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1"
+        >Descrição geral deve conter entre 100 e 10000 caracteres</span
+      >
+    </div>
+
+    <div class="relative mt-3 w-40 sm:w-auto xl:mr-4 lg:mr-0 sm:mr-4 mr-2">
+      <label
+        for="specialDescription"
+        class="leading-7 text-sm font-medium text-gray-700"
+        >Como reconhecer a planta</label
+      >
+      <textarea
+        [(ngModel)]="tree.specialDescription"
+        type="text"
+        name="specialDescription"
+        class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-green-200 focus:border-green-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+      ></textarea>
+    </div>
+
+    <div class="relative mt-3 w-40 sm:w-auto xl:mr-4 lg:mr-0 sm:mr-4 mr-2">
+      <label
+        for="whereOccurs"
+        class="leading-7 text-sm font-medium text-gray-700"
+        >Ocorrência e amplitude ecológica</label
+      >
+      <textarea
+        [(ngModel)]="tree.whereOccurs"
+        type="text"
+        name="whereOccurs"
+        class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-green-200 focus:border-green-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+      ></textarea>
+    </div>
+
+    <div class="relative mt-3 w-40 sm:w-auto xl:mr-4 lg:mr-0 sm:mr-4 mr-2">
+      <label
+        for="ecologicalInfo"
+        class="leading-7 text-sm font-medium text-gray-700"
+        >Informações ecológicas</label
+      >
+      <textarea
+        [(ngModel)]="tree.ecologicalInfo"
+        type="text"
+        name="ecologicalInfo"
+        class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-green-200 focus:border-green-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+      ></textarea>
+    </div>
+
+    <div class="relative mt-3 w-40 sm:w-auto xl:mr-4 lg:mr-0 sm:mr-4 mr-2">
+      <label
+        for="phenologicalInfo"
+        class="leading-7 text-sm font-medium text-gray-700"
+        >Informações fenológicas</label
+      >
+      <textarea
+        [(ngModel)]="tree.phenologicalInfo"
+        type="text"
+        name="phenologicalInfo"
+        class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-green-200 focus:border-green-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+      ></textarea>
+    </div>
+
+    <div class="relative mt-3 w-40 sm:w-auto xl:mr-4 lg:mr-0 sm:mr-4 mr-2">
+      <label
+        for="propagation"
+        class="leading-7 text-sm font-medium text-gray-700"
+        >Propagação</label
+      >
+      <textarea
+        [(ngModel)]="tree.propagation"
+        type="text"
+        name="propagation"
+        class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-green-200 focus:border-green-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+      ></textarea>
+    </div>
+
+    <div class="relative mt-3 w-40 sm:w-auto xl:mr-4 lg:mr-0 sm:mr-4 mr-2">
+      <label
+        for="managementGuide"
+        class="leading-7 text-sm font-medium text-gray-700"
+        >Guia de manejo</label
+      >
+      <textarea
+        [(ngModel)]="tree.managementGuide"
+        type="text"
+        name="managementGuide"
+        class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-green-200 focus:border-green-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+      ></textarea>
+    </div>
+
+    <div class="relative mt-3 w-40 sm:w-auto xl:mr-4 lg:mr-0 sm:mr-4 mr-2">
+      <label for="utilities" class="leading-7 text-sm font-medium text-gray-700"
+        >Utilidades</label
+      >
+      <textarea
+        [(ngModel)]="tree.utilities"
+        type="text"
+        name="utilities"
+        class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-green-200 focus:border-green-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+      ></textarea>
+    </div>
+
+    <div class="relative mt-3 w-40 sm:w-auto xl:mr-4 lg:mr-0 sm:mr-4 mr-2">
+      <label
+        for="culturalImportance"
+        class="leading-7 text-sm font-medium text-gray-700"
+        >Importância cultural</label
+      >
+      <textarea
+        [(ngModel)]="tree.culturalImportance"
+        type="text"
+        name="culturalImportance"
+        class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-green-200 focus:border-green-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+      ></textarea>
+    </div>
+
+    <div class="mt-10 flex justify-center">
+      <button
+        [disabled]="treeCreateFormId.invalid"
+        (click)="save()"
+        class="inline-flex mr-20 text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded text-lg"
+      >
+        Save
+      </button>
+      <button
+        (click)="returnHome()"
+        class="inline-flex text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded text-lg"
+      >
+        Back
+      </button>
+    </div>
+  </form>
+</div>
+
+<app-footer></app-footer>

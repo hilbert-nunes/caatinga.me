@@ -1,0 +1,140 @@
+<section class="text-gray-600 body-font">
+  <div class="container px-10 mx-auto">
+    <div class="flex flex-wrap w-full mb-20">
+      <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
+        <h1
+          class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900"
+        >
+          Algumas árvores
+        </h1>
+        <div class="h-1 w-20 bg-green-500 rounded"></div>
+      </div>
+      <p class="lg:w-1/2 w-full leading-relaxed text-gray-500">
+        A <strong>Caatinga</strong> é o <strong>único</strong> bioma
+        exclusivamente brasileiro. Está localizada nos estados do Nordeste do
+        Brasil e no extremo norte de Minas Gerais.
+        <strong
+          >Conheça melhor a caatinga e, especialmente, suas árvores.</strong
+        >
+      </p>
+    </div>
+    <div class="flex flex-wrap -m-4">
+      <div class="xl:w-1/4 md:w-1/2 p-4">
+        <a (click)="redirect('Ameixa')">
+          <div
+            class="bg-gray-100 p-6 rounded-lg transform transition duration-500 hover:scale-105 hover:drop-shadow-md"
+          >
+            <img
+              class="h-40 rounded w-full object-cover object-center mb-6"
+              src="http://www.arvoresdobiomacerrado.com.br/site/wp-content/uploads/2017/07/1-86.jpg"
+              alt="content"
+            />
+            <h3
+              class="tracking-widest text-green-500 text-xs font-medium title-font"
+            >
+              AMEIXA
+            </h3>
+            <h2 class="text-lg text-gray-900 font-medium title-font mb-4">
+              <i>Ximenia americana L.</i>
+            </h2>
+            <p class="leading-relaxed text-base">
+              A ameixa é uma das plantas que sofreram, como toda a vegetação da
+              caatinga, com o preconceito da inferioridade do Nordeste.
+            </p>
+          </div>
+        </a>
+      </div>
+
+      <div class="xl:w-1/4 md:w-1/2 p-4">
+        <a (click)="redirect('Umbuzeiro')">
+          <div
+            class="bg-gray-100 p-6 rounded-lg transform transition duration-500 hover:scale-105 hover:drop-shadow-md"
+          >
+            <img
+              class="h-40 rounded w-full object-cover object-center mb-6"
+              src="https://www.embrapa.br/image/journal/article?img_id=48208772&t=1574096780302"
+              alt="content"
+            />
+            <h3
+              class="tracking-widest text-green-500 text-xs font-medium title-font"
+            >
+              UMBUZEIRO
+            </h3>
+            <h2 class="text-lg text-gray-900 font-medium title-font mb-4">
+              <i>Spondias tuberosa</i> Arruda
+            </h2>
+            <p class="leading-relaxed text-base">
+              O umbuzeiro é fonte de socorro para os habitantes das regiões mais
+              secas do Nordeste, quando as chuvas são escassas e impedem o
+              desenvolvimento de outras culturas agrícolas, como a do milho e do
+              feijão.
+            </p>
+          </div>
+        </a>
+      </div>
+
+      <div class="xl:w-1/4 md:w-1/2 p-4">
+        <a (click)="redirect('Oiticica')">
+          <div
+            class="bg-gray-100 p-6 rounded-lg transform transition duration-500 hover:scale-105 hover:drop-shadow-md"
+          >
+            <img
+              class="h-40 rounded w-full object-cover object-center mb-6"
+              src="https://4.bp.blogspot.com/-tgb3F79mCV0/WkqP7-SZXkI/AAAAAAAADgc/WGjYis4qw5koKFUw-EtiUbL9Exc_lrlgQCLcBGAs/s1600/frondosa%2BOiticica_Licania%2Brigida_oiticica%2Bem%2Briacho.jpg"
+              alt="content"
+            />
+            <h3
+              class="tracking-widest text-green-500 text-xs font-medium title-font"
+            >
+              OITICICA
+            </h3>
+            <h2 class="text-lg text-gray-900 font-medium title-font mb-4">
+              <i>Licania Rigida</i> Benth
+            </h2>
+            <p class="leading-relaxed text-base">
+              Árvore da família das rosáceas, nativa do semi-árido nordestino,
+              com 10 a 12 m de altura, em média, podendo chegar a até 30 m, com
+              um tronco grosso que se ramifica pouco acima do solo, formando
+              copas com 20 a 30 m de diâmetro.
+            </p>
+          </div>
+        </a>
+      </div>
+
+      <div class="xl:w-1/4 md:w-1/2 p-4">
+        <a (click)="redirect('Juazeiro')">
+          <div
+            class="bg-gray-100 p-6 rounded-lg transform transition duration-500 hover:scale-105 hover:drop-shadow-md"
+          >
+            <img
+              class="h-40 rounded w-full object-cover object-center mb-6"
+              src="https://i1.wp.com/files.agro20.com.br/uploads/2019/10/juazeiro-1.jpg?fit=1024%2C576&ssl=1"
+              alt="content"
+            />
+            <h3
+              class="tracking-widest text-green-500 text-xs font-medium title-font"
+            >
+              JUAZEIRO
+            </h3>
+            <h2 class="text-lg text-gray-900 font-medium title-font mb-4">
+              <i>Ziziphus joazeiro</i> Mart
+            </h2>
+            <p class="leading-relaxed text-base">
+              Árvore encontrada na caatinga e no cerrado, de médio porte,
+              atingindo em média 14 m de altura. A copa é baixa, muito
+              ramificada e densa. Com diversas propriedades medicinais, é muito
+              respeitada pelo sertanejo.
+            </p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <button
+      (click)="redirect('trees')"
+      class="flex mx-auto mt-16 text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg"
+    >
+      Veja mais
+    </button>
+  </div>
+</section>

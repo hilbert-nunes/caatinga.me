@@ -1,3 +1,4 @@
+import { SharedModule } from './shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -6,22 +7,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http'
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ArvoreComponent } from './arvore/arvore/arvore.component';
-import { HomeComponent } from './home/home/home.component';
-import { ArvoresComponent } from './arvores/arvores/arvores.component';
-import { ArvoreUpdateComponent } from './arvore/arvore/arvore-update.component';
-import { ArvoreCreateComponent } from './arvore/arvore/arvore-create.component';
-import { LoginComponent } from './login/login.component';
+
+import { HomeComponent } from './public/components/home/home.component';
+import { UpdateTreeComponent } from './private/components/update-tree/update-tree.component';
+import { CreateTreeComponent } from './private/components/create-tree/create-tree.component';
+import { TreeComponent } from './public/components/tree/tree.component';
+import { TreeListComponent } from './public/components/tree-list/tree-list.component';
+import { LoginComponent } from './public/components/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ArvoreComponent,
-    ArvoresComponent,
-    ArvoreUpdateComponent,
-    ArvoreCreateComponent,
     HomeComponent,
-    LoginComponent,
+    UpdateTreeComponent,
+    CreateTreeComponent,
+    TreeComponent,
+    TreeListComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +31,8 @@ import { LoginComponent } from './login/login.component';
     ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
