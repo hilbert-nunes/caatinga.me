@@ -3,7 +3,7 @@ server:
 
 app:
   datasource:
-    jdbc-url: jdbc:postgresql://caatingadb.cdnf5asglmrk.sa-east-1.rds.amazonaws.com:5432/caatingadb
-    username: hilbert
+    jdbc-url: jdbc:postgresql://caatingadb.cekhyrkdeh6p.us-east-1.rds.amazonaws.com:5432/caatingadb
+    username: root
     password: Di##7890
     pool-size: 30

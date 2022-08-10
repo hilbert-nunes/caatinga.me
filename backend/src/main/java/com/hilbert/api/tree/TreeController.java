@@ -18,26 +18,31 @@ public class TreeController {
         this.treeService = treeService;
     }
 
+    @CrossOrigin(origins = "http://caatinga.s3-website-sa-east-1.amazonaws.com/")
     @GetMapping(value = "/trees")
     public ResponseEntity<Response<List<TreeDTO>>> findAllTrees(){
         return treeService.findAllTrees();
     }
 
+    @CrossOrigin(origins = "http://caatinga.s3-website-sa-east-1.amazonaws.com/")
     @GetMapping("/tree/id/{treeId}")
     public ResponseEntity<Response<TreeDTO>> getOneTreeById(@PathVariable("treeId") Long treeId){
         return treeService.getOneTreeById(treeId);
     }
 
+    @CrossOrigin(origins = "http://caatinga.s3-website-sa-east-1.amazonaws.com/")
     @GetMapping("/tree/name/{singleName}")
     public ResponseEntity<Response<TreeDTO>> getOneTreeByName(@PathVariable("singleName") String singleName){
         return treeService.getOneTreeByName(singleName);
     }
 
+    @CrossOrigin(origins = "http://caatinga.s3-website-sa-east-1.amazonaws.com/")
     @PostMapping("/tree")
     public ResponseEntity<Response<TreeDTO>> saveTree(@Valid @RequestBody TreeDTO treeDTO, BindingResult bindingResult){
         return treeService.saveTree(treeDTO, bindingResult);
     }
 
+    @CrossOrigin(origins = "http://caatinga.s3-website-sa-east-1.amazonaws.com/")
     @PutMapping("/tree/{treeId}")
     public ResponseEntity<Response<TreeDTO>> updateTree(
             @PathVariable("treeId") Long treeId,
@@ -45,7 +50,8 @@ public class TreeController {
             BindingResult bindingResult){
         return treeService.updateTree(treeId, treeDto, bindingResult);
     }
-
+    
+    @CrossOrigin(origins = "http://caatinga.s3-website-sa-east-1.amazonaws.com/")
     @DeleteMapping("/tree/{treeId}")
     public ResponseEntity<Response<String>> deleteTree(
             @PathVariable("treeId") Long treeId){
