@@ -36,12 +36,13 @@ Aplicar meus conhecimentos em algo que eu gosto e admiro muito, que é a cultura
 
 - Angular Routing
 - Angular Module
-- Angular Observables
+- Angular Observables (RxJs)
+- Angular Forms
 - Error interceptor
 - Scalable Angular Structure
 - JWT in Angular + Spring
 - AWS hosting
-- ext.: Angular Schematics
+- VS extension: Angular Schematics
 
 ## 🗺️ Mapa do Maroto <a name = "map"></a>
 
