@@ -6,6 +6,7 @@ import { UpdateTreeComponent } from './private/components/update-tree/update-tre
 import { CreateTreeComponent } from './private/components/create-tree/create-tree.component';
 import { TreeComponent } from './public/components/tree/tree.component';
 import { TreeListComponent } from './public/components/tree-list/tree-list.component';
+import { ApiComponent } from './public/components/api/api.component';
 
 const routes: Routes = [
 {
@@ -40,6 +41,10 @@ const routes: Routes = [
 {
   path: 'home',
   component: HomeComponent
+},
+{
+  path: 'api',
+  component: ApiComponent
 },
 {
   path: '**',

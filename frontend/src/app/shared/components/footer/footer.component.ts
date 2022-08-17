@@ -14,4 +14,8 @@ export class FooterComponent implements OnInit {
   login() {
     this.router.navigate(['/login'])
   }
+
+  api() {
+    this.router.navigate(['/api'])
+  }
 }

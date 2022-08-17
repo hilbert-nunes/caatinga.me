@@ -14,6 +14,7 @@ import { CreateTreeComponent } from './private/components/create-tree/create-tre
 import { TreeComponent } from './public/components/tree/tree.component';
 import { TreeListComponent } from './public/components/tree-list/tree-list.component';
 import { LoginComponent } from './public/components/login/login.component';
+import { ApiComponent } from './public/components/api/api.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { LoginComponent } from './public/components/login/login.component';
     CreateTreeComponent,
     TreeComponent,
     TreeListComponent,
-    LoginComponent
+    LoginComponent,
+    ApiComponent
   ],
   imports: [
     BrowserModule,

@@ -16,8 +16,10 @@ export class NavBarComponent implements OnInit {
   redirect(route: string){
     if (route === 'home'){
       this.router.navigate(['/home'])
-    } else {
+    } else if (route === 'list') {
       this.router.navigate(['/arvores'])
+    } else {
+      this.router.navigate(['/api'])
     }
   }
 
