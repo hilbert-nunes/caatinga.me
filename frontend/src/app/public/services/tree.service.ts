@@ -15,7 +15,7 @@ export class TreeService {
 
   returnTrees(): Observable<Response<Tree[]>> {
     return this.http.get<Response<Tree[]>>(
-      `${this.apiUrl}/api/v1/caatinga/trees`
+      `${this.apiUrl}/v1/trees`
     )
   }
 }

@@ -16,7 +16,7 @@ export class TreeService {
 
   returnTree(singleName: string): Observable<Response<Tree>> {
     return this.http.get<Response<Tree>>(
-      `${this.apiUrl}/api/v1/caatinga/tree/name/${singleName}`
+      `${this.apiUrl}/v1/tree/name/${singleName}`
     )
   }
 
@@ -26,7 +26,7 @@ export class TreeService {
       'Bearer ' + localStorage.getItem('access_token')
     )
     return this.http.post<Response<Tree>>(
-      `${this.apiUrl}/api/v1/caatinga/tree`,
+      `${this.apiUrl}/v1/tree`,
       tree,
       {
         headers: headers,
@@ -40,7 +40,7 @@ export class TreeService {
       'Bearer ' + localStorage.getItem('access_token')
     )
     return this.http.put<Response<Tree>>(
-      `${this.apiUrl}/api/v1/caatinga/tree/${tree.id}`,
+      `${this.apiUrl}/v1/tree/${tree.id}`,
       tree,
       {
         headers: headers,
@@ -54,7 +54,7 @@ export class TreeService {
       'Bearer ' + localStorage.getItem('access_token')
     )
     return this.http.delete<Response<Tree>>(
-      `${this.apiUrl}/api/v1/caatinga/tree/${treeId}`,
+      `${this.apiUrl}/v1/tree/${treeId}`,
       {
         headers: headers,
       }
