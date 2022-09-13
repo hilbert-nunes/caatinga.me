@@ -22,7 +22,6 @@ target/
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
-/dist/
 /nbdist/
 /.nb-gradle/
 build/
@@ -262,7 +261,6 @@ out
 
 # Nuxt.js build / generate output
 .nuxt
-dist
 
 # Gatsby files
 .cache/
@@ -319,7 +317,6 @@ dist
 ### Angular ###
 ## Angular ##
 # compiled output
-dist/
 tmp/
 app/**/*.js
 app/**/*.js.map
@@ -439,7 +436,6 @@ out
 
 # Nuxt.js build / generate output
 .nuxt
-dist
 
 # Gatsby files
 .cache/
