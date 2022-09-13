@@ -38,12 +38,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable();
+        http.cors().and().csrf().disable();
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-        http.authorizeRequests().antMatchers(POST, "/api/v1/caatinga/**").hasAnyAuthority("ROLE_ADMIN");
-        http.authorizeRequests().antMatchers(PUT, "/api/v1/caatinga/**").hasAnyAuthority("ROLE_ADMIN");
-        http.authorizeRequests().antMatchers(DELETE, "/api/v1/caatinga/**").hasAnyAuthority("ROLE_ADMIN");
-        http.authorizeRequests().antMatchers(GET, "/api/v1/caatinga/users").hasAnyAuthority("ROLE_ADMIN");
+        http.authorizeRequests().antMatchers(POST, "/v1/**").hasAnyAuthority("ROLE_ADMIN");
+        http.authorizeRequests().antMatchers(PUT, "/v1/**").hasAnyAuthority("ROLE_ADMIN");
+        http.authorizeRequests().antMatchers(DELETE, "/v1/**").hasAnyAuthority("ROLE_ADMIN");
+        http.authorizeRequests().antMatchers(GET, "/v1/users").hasAnyAuthority("ROLE_ADMIN");
         http.addFilter(new CustomAuthenticationFilter(authenticationManagerBean()));
         http.addFilterBefore(new CustomAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
     }
@@ -52,5 +52,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public AuthenticationManager authenticationManagerBean() throws Exception{
         return super.authenticationManagerBean();
+    }
+
+    @Bean
+    CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration().applyPermitDefaultValues();
+        configuration.setAllowedMethods(Arrays.asList("POST", "GET", "PUT", "DELETE", "OPTIONS"));
+        final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
     }
 }

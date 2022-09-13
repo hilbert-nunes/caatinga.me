@@ -9,7 +9,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/caatinga")
+@RequestMapping("/v1")
 public class ReferenceController {
 
     private final ReferenceService referenceService;

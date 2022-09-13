@@ -4,7 +4,7 @@
 /* RESET
 ----------------------------------------------------------------------------------------*/
 
-html, body, div, span, applet, object, iframe,
+html, body, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, ins, kbd, q, s, samp,
@@ -29,6 +29,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 img, embed, object, video { max-width: 100%; }
 .ie6 img.full, .ie6 object.full, .ie6 embed, .ie6 video { width: 100%; }
+
+.header-api {
+  margin-top: 50px;
+}
 
 /* BASE
 ----------------------------------------------------------------------------------------*/

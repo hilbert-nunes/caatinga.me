@@ -11,11 +11,11 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/caatinga")
+@RequestMapping("/v1")
 @RequiredArgsConstructor
 public class AppUserController {
 
-    private final String basePath = "/api/v1/caatinga";
+    private final String basePath = "/v1";
 
     private final AppUserService appUserService;
 
