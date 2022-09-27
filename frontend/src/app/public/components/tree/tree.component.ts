@@ -11,6 +11,8 @@ import { Subscription } from 'rxjs'
   styleUrls: ['./tree.component.css'],
 })
 export class TreeComponent implements OnInit, OnDestroy {
+
+  haveTree: boolean = false
   tree: Tree
 
   relativePath: string = 'assets\\img\\trees'
@@ -20,7 +22,7 @@ export class TreeComponent implements OnInit, OnDestroy {
 
   constructor(
     private treeService: TreeService,
-    private route: ActivatedRoute,
+    public route: ActivatedRoute,
     private router: Router,
     private http: HttpClient
   ) {
@@ -43,6 +45,7 @@ export class TreeComponent implements OnInit, OnDestroy {
   }
   ngOnDestroy(): void {
     this.subscriptions.unsubscribe()
+    this.haveTree = false
   }
 
   ngOnInit(): void {
@@ -54,6 +57,7 @@ export class TreeComponent implements OnInit, OnDestroy {
     const subscription = this.treeService.returnTree(this.pathSingleName).subscribe((item) => {
       const data = item.data
       this.tree = data
+      this.haveTree = true
     })
     this.subscriptions.add(subscription)
   }
